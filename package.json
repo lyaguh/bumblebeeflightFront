@@ -1,0 +1,24 @@
+{
+  "name": "bumblebeeflightfront",
+  "version": "1.0.0",
+  "description": "front server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyaguh/bumblebeeflightFront.git"
+  },
+  "author": "BF",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyaguh/bumblebeeflightFront/issues"
+  },
+  "homepage": "https://github.com/lyaguh/bumblebeeflightFront#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "jszip": "^3.10.0"
+    "xmlhttprequest": "^1.8.0"
+  }
+}
