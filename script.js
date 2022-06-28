@@ -4,7 +4,7 @@ const practiceForm = document.forms.practice;
 
 function sendForm() {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', practiceForm.action);
+    xhr.open('POST', 'https://0ae1-178-207-91-7.eu.ngrok.io/api/user');
 
     xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
     xhr.onload = () => {

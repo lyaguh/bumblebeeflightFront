@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lyaguh/bumblebeeflightFront#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
