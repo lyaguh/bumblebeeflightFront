@@ -1,5 +1,5 @@
 
-const practiceForm = document.forms.practice;
+const applicationForm = document.forms.application;
 
 function sendForm() {
     const urlToBack = prompt('Введите URL до эндпоинта');
@@ -16,8 +16,7 @@ function sendForm() {
             document.getElementById('formLabel').innerText = `Не сработало(${xhr.status}`
         }
     }
-    let formData = new FormData(practiceForm
-      );
+    let formData = new FormData(applicationForm);
     var object = {};
     formData.forEach(function(value, key){
         object[key] = value;
@@ -30,7 +29,7 @@ function sendForm() {
     document.getElementById('formLabel').innerText = `Cработало)`
   }
   // при отправке формы
-  practiceForm.addEventListener('submit', (e) => {
+  applicationForm.addEventListener('submit', (e) => {
     e.preventDefault();
     sendForm();
   });
