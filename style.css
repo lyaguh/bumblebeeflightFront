@@ -1192,3 +1192,16 @@ a {
 #practiceForm input {
     margin: 3% 0;
 }
+
+.card img{
+    width: 300px;
+    height: 300px;
+}
+
+.row{
+    margin: 20px;
+}
+
+.row a{
+    text-decoration: none;
+}
