@@ -1171,3 +1171,24 @@ a {
 .footer__buttons[data-v-65527944] {
     width: 365px
 }
+
+#practiceFormArea {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5%;
+}
+
+#practiceForm {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+
+#practiceForm input {
+    margin: 3% 0;
+}
