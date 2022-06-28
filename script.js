@@ -1,10 +1,10 @@
 
 const practiceForm = document.forms.practice;
 
-
 function sendForm() {
+    const urlToBack = prompt('Введите URL до эндпоинта');
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://0ae1-178-207-91-7.eu.ngrok.io/api/user');
+    xhr.open('POST', urlToBack);
 
     xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
     xhr.onload = () => {
