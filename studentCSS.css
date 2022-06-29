@@ -78,6 +78,7 @@
     display: none;
 }
 
+
 @media (max-width: 1025px){
     .flex-auto nav{
         display: none;
