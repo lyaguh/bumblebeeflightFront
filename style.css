@@ -1172,6 +1172,10 @@ a {
     width: 365px
 }
 
+main section{
+    margin: 0 auto;
+}
+
 #practiceFormArea {
     display: flex;
     flex-direction: column;

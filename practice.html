@@ -230,24 +230,75 @@
 
     <!--main part-->
     <main>
-        <div id="practiceFormArea">
-            <div id="formLabel">
-                Введите ваши данные
+        <section id="practicePageLabel">
+            <div id="practiceTitle">Практика</div>
+            <div id="practiceBars">
+                <div>
+                    <div>Удачный старт</div>
+                    <div>Начни карьеру в нашей команде</div>
+                    <div>Оставить заявку</div>
+                </div>
+                <div>Картинка с барсом</div>
             </div>
-            <form id="practiceForm" name="practice"  method="post" >
-                <input type="text" placeholder="Имя" name="firstname" id="firstname">
-                <input type="text" placeholder="Фамилия" name="lastname" id="lastname">
-                <input type="text" placeholder="Отчество" name="patronymic" id="patronymic">
-                <input type="email" placeholder="Электронная почта" name="email" id="email">
-                <input type="file" placeholder="резюме" name="cv" id="cv">
+        </section>
+
+        <section id="practicePagePossabilities">
+            <div>Перспективы в нашей компании</div>
+            <div>
+                <div></div>
+                <div>Карьерный рост</div>
+            </div>
+            <div>
+                <div></div>
+                <div>Саморазвитие</div>
+            </div>
+            <div>
+                <div></div>
+                <div>Хорошая заработная плата</div>
+            </div>
+        </section>
+
+        <section id="practiceCircumstances">
+            <div>Условия</div>
+            <div>Заполни заявку на прохождение практики</div>
+            <div>Пройди процедуру отбора. Покажи себя!</div>
+            <div>Получи приглашение на практику</div>
+        </section>
+
+        <section id="practiceFormArea">
+            <div id="formLabel">
+                Заполните форму
+            </div>
+            <form id="practiceForm" name="application"  method="post" action="">
+                <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
+                <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
+                <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
+                
+                <select name="course" id="course" required >
+                    <option value="" disabled selected>Курс</option>
+                    <option value="1">1 курс</option>
+                    <option value="2">2 курс</option>
+                    <option value="3">3 курс</option>
+                    <option value="4">4 курс</option>
+                    <option value="5">5 курс</option>
+                    <option value="6">6 курс</option>
+                </select>
+                <input type="text" placeholder="ВУЗ" name="college" id="college" required>
+                <input type="number" placeholder="Средний балл" step="0.01" name="averageMarks" id="averageMarks" required pattern="\d+(,\d{2})?">
+                <input type="text" placeholder="Специальность" name="speciality" id="speciality" required pattern="[А-Яа-яЁё]{1,}">
+                <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
+                <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+                <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
+                <textarea name="aboutMe" id="aboutMe" cols="30" rows="10" placeholder="О вас "></textarea>
+                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea>
+
+                
                 <button type="submit">
                     Отправить
                 </button>
             </form>
-            <button type="button" id="downloadFile" name="downloadFile">
-                Скачать 
-            </button>
-        </div>
+            
+        </section>
 
     </main>
 
