@@ -1192,3 +1192,41 @@ a {
 #practiceForm input {
     margin: 3% 0;
 }
+
+.card img{
+    width: 280px;
+    height: 300px;    
+}
+
+.card-body{
+    height: 230px;
+}
+
+.col{
+    position: absolute;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    text-align: center;
+
+}
+
+.imgcard{
+    text-align: center;
+}
+
+.nav-button{
+    background-color: white;
+    border: 0;
+    display: none;
+}
+
+@media (max-width: 1025px){
+    .flex-auto nav{
+        display: none;
+    }
+    
+    .nav-button{
+        display: contents;
+    }
+}
+
