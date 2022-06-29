@@ -369,18 +369,35 @@
 
         </div>
         <form id="application" name="application" method="post">
-            <input type="text" name="Secondname" placeholder="Фамилия*" required>
-            <input type="text" name="Firstname" placeholder="Имя*" required>
-            <input type="text" name="Patronymic" placeholder="Отчество">            
-            <input type="text" name="BirthDate" placeholder="Дата рождения*" required>
-            <input type="text" name="EducationLevel" placeholder="Уровень образования*" required>
+            <input type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
+            <input type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
+            <input type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">            
+            <input type="date" name="BirthDate" placeholder="Дата рождения*" required >
+
+            <select name="EducationLevel" id="EducationLevel">
+                <option value="" disabled selected>Уровень образования</option>
+                <option value="1" >Колледж/Техникум</option>
+                <option value="2" >Бакалавриат</option>
+                <option value="3" >Специалитет</option>
+                <option value="4" >Магистратура</option>
+
+            </select>
             <input type="text" name="College" placeholder="Место учебы*" required>
-            <input type="text" name="Course" placeholder="Курс*" required>            
-            <input type="text" name="AverageMarks" placeholder="Средний балл за год*" required>
-            <input type="text" name="EducationForm" placeholder="Форма обучения*" required>
-            <input type="text" name="OtherGrants" placeholder="Есть ли другие стипендии, и какие*" required>
-            <input type="text" name="Phone" placeholder="Телефон*" required>
-            <input type="text" name="Email" placeholder="Email*" required>
+
+            <select name="course" id="course" required >
+                <option value="" disabled selected>Курс</option>
+                <option value="1">1 курс</option>
+                <option value="2">2 курс</option>
+                <option value="3">3 курс</option>
+                <option value="4">4 курс</option>
+                <option value="5">5 курс</option>
+                <option value="6">6 курс</option>
+            </select>            
+            <input type="number" step="0.01" name="AverageMarks" placeholder="Средний балл за год*" required>
+            <input type="text" name="EducationForm" placeholder="Форма обучения*" requiredpattern="[А-Яа-яЁё]{1,}">
+            <input type="text" name="OtherGrants" placeholder="Есть ли другие стипендии, и какие*" required >
+            <input type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+            <input type="email" name="Email" placeholder="Email*" required>
             <div class="flex-auto relative">
                 <!---->
                 <div aria-haspopup="true" aria-controls="head-menu-online-banks-list" class="cnt__btn phone__w100"

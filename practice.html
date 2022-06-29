@@ -270,27 +270,34 @@
                 Заполните форму
             </div>
             <form id="practiceForm" name="application"  method="post" action="">
-                <input type="text" placeholder="Имя" name="firstname" id="firstname" autofocus>
-                <input type="text" placeholder="Фамилия" name="secondname" id="secondname">
-                <input type="text" placeholder="Отчество" name="patronymic" id="patronymic">
-                <input type="text" placeholder="Курс" name="course" id="course">
-                <input type="text" placeholder="ВУЗ" name="college" id="college">
-                <input type="text" placeholder="Средний балл" name="averageMarks" id="averageMarks">
-                <input type="text" placeholder="Специальность" name="speciality" id="speciality">
-                <input type="date" placeholder="Дата начала практики" name="dateOfPractice" id="dateOfPractice">
-                <input type="phone" placeholder="Телефон" name="phone" id="phone">
-                <input type="emai" placeholder="Электронная почта" name="email" id="email">
-                <textarea name="aboutYou" id="aboutYou" cols="30" rows="10"></textarea>
-                <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
+                <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
+                <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
+                
+                <select name="course" id="course" required >
+                    <option value="" disabled selected>Курс</option>
+                    <option value="1">1 курс</option>
+                    <option value="2">2 курс</option>
+                    <option value="3">3 курс</option>
+                    <option value="4">4 курс</option>
+                    <option value="5">5 курс</option>
+                    <option value="6">6 курс</option>
+                </select>
+                <input type="text" placeholder="ВУЗ" name="college" id="college" required>
+                <input type="number" placeholder="Средний балл" step="0.01" name="averageMarks" id="averageMarks" required pattern="\d+(,\d{2})?">
+                <input type="text" placeholder="Специальность" name="speciality" id="speciality" required pattern="[А-Яа-яЁё]{1,}">
+                <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
+                <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+                <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
+                <textarea name="aboutMe" id="aboutMe" cols="30" rows="10" placeholder="О вас "></textarea>
+                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea>
 
                 
                 <button type="submit">
                     Отправить
                 </button>
             </form>
-            <button type="button" id="downloadFile" name="downloadFile">
-                Скачать 
-            </button>
+            
         </section>
 
     </main>
