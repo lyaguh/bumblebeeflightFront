@@ -2,9 +2,10 @@
 const applicationForm = document.forms.application;
 
 function sendForm() {
-    const urlToBack = prompt('Введите URL до эндпоинта');
+    const urlToBack = 'https://01d7-85-249-26-99.eu.ngrok.io'
+    // prompt('Введите URL до эндпоинта');
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', urlToBack);
+    xhr.open('POST', urlToBack+applicationForm.action);
 
     xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
     xhr.onload = () => {
