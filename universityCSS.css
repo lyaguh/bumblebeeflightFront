@@ -1,0 +1,78 @@
+.main_content .mn{
+    padding: 0 8%;
+}
+
+.main_blok h1{
+    font-size: 35px;
+    position: absolute;
+    top: 28%;
+    text-transform: uppercase;
+    color: white;
+}
+
+.main_blok {
+position: relative;
+}
+
+.abaut_us h2{
+    font-size: 30px;
+    padding-top: 30px; 
+}
+
+.blok_abaut_us {
+	white-space: nowrap;
+}
+.text_img{
+	white-space: normal;	
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+.blok_abaut_us .text_img:first-child {
+	margin-right: 4%;
+}
+
+.text_img img{
+    width: 100%;
+}
+
+.forms_form h3{
+    color: #6c6c6c;
+}
+
+.forms_form form{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.forms_form form .left{
+    padding-left: 10px;
+    font-size: 18px;
+    height: 60px; 
+    width: 500px;
+    border-radius: 4px;
+    margin: 10px 10px 30px 0;
+    border: 1px solid #c9c9c9;
+    
+}
+
+.forms_form form .right{
+    padding-left: 10px;
+    font-size: 18px;
+    height: 60px; 
+    width: 500px;
+    border-radius: 4px;
+    margin: 10px 0 30px 10px;
+    border: 1px solid #c9c9c9;
+    
+}
+
+@media (max-width: 1260px){
+    .forms_form form .left{
+        margin: 10px 0 30px 0;
+    }
+    
+    .forms_form form .right{
+        margin: 10px 0 30px 0;
+    }
+}
