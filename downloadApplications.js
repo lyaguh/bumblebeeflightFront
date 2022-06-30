@@ -4,9 +4,9 @@ const downloadbtns=document.getElementsByName('downloadbtn')
 var downloadList = Array.prototype.slice.call(downloadbtns);
 for(i = 0;i < downloadList.length; i++)
 {
-    downloadbtns[i].addEventListener('click',()=>{
-        var csvName=fileName(downloadbtns[i].id)
-        getFile(serverURL+downloadbtns[i].id, csvName)
+    downloadbtns[i].addEventListener('click',(event)=>{
+        var csvName=fileName(event.currentTarget.id)
+        getFile(serverURL+event.currentTarget.id, csvName)
         
     })
 }
