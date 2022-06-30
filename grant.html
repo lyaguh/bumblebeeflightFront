@@ -392,7 +392,20 @@
                 <option value="4">4 курс</option>
                 <option value="5">5 курс</option>
                 <option value="6">6 курс</option>
-            </select>            
+            </select>       
+            <select name="speciality" id="speciality" required >
+                <option value="" disabled selected>Направление обучения</option>
+                <option value="банковское дело">банковское дело</option>
+                <option value="экономика">экономика</option>
+                <option value="кредиты и финансы">кредиты и финансы</option>
+                <option value="рынок ценных бумаг">рынок ценных бумаг</option>
+                <option value="информационные технологии">информационные технологии</option>
+                <option value="бизнес-информатика">бизнес-информатика</option>
+                <option value="бизнес-аналитика">бизнес-аналитика</option>
+                <option value="финансовый менеджмент">финансовый менеджмент</option>
+                <option value="математическое моделирование (прикладная математика)">математическое моделирование (прикладная математика)</option>
+                <option value="информационная безопасность">информационная безопасность</option>
+            </select>      
             <input type="number" step="0.01" name="AverageMarks" placeholder="Средний балл за год*" required>
             <input type="text" name="EducationForm" placeholder="Форма обучения*" requiredpattern="[А-Яа-яЁё]{1,}">
             <input type="text" name="OtherGrants" placeholder="Есть ли другие стипендии, и какие*" required >

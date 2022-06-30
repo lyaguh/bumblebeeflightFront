@@ -1,27 +1,52 @@
-const downloadbtn= document.getElementById('downloadProbation')
-let text = JSON.stringify({hello:'example'});
+let serverURL='https://9aee-85-26-234-110.eu.ngrok.io'
+const downloadbtns=document.getElementsByName('downloadbtn')
 
-downloadbtn.addEventListener('click',()=>{
-    getInfo()
-   // downloadAsFile(text);
-  })
+var downloadList = Array.prototype.slice.call(downloadbtns);
+for(i = 0;i < downloadList.length; i++)
+{
+    downloadbtns[i].addEventListener('click',()=>{
+        var csvName=fileName(downloadbtns[i].id)
+        getFile(serverURL+downloadbtns[i].id, csvName)
+        
+    })
+}
  
-  async function getInfo(res) {
+function fileName(id) {
+    if (id=='/api/universityForm/create-csv') {
+        var fName='Корпоративный университет'
+    }
+    else {
+        if (id=='/api/practiceForm/create-csv') {
+            var fName='Практика'
+        }
+        else {
+            if (id=='/api/probationForm/create-csv') {
+                var fName='Стажировка'
+            }
+            else {
+                if (id=='/api/grantForm/create-csv') {
+                    var fName='Именная стипендия Ак Барс Банка'
+                }
+            }
+        }
+    }
+    return fName
+}
+
+async function getFile(serverURL, fName) {
     const xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://9aee-85-26-234-110.eu.ngrok.io/api/universityForm/create-csv');
+    xhr.open('get', serverURL);
     xhr.onload = function() {
     let responseObj = xhr.response;
-        downloadAsFile(responseObj)
-    console.log('5555', responseObj)
-    res= responseObj
+        downloadAsFile(responseObj, fName)
     };
     xhr.send();
 } 
-  function downloadAsFile(data) {
+
+function downloadAsFile(data, fName) {
     let a = document.createElement("a");
     let file = new Blob([data], {type: 'application/csv'});
-    console.log(file)
     a.href = URL.createObjectURL(file);
-    a.download = "ex.csv";
+    a.download = fName+".csv";
     a.click();
-  }
+}
