@@ -1,0 +1,100 @@
+.card img{
+    width: 280px;
+    height: 300px;    
+}
+
+.card-body{
+    height: 250px;
+}
+
+.col{
+    position: absolute;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    text-align: center;
+
+}
+
+.imgcard{
+    text-align: center;
+}
+
+}
+
+.ofic{
+        display: block;
+    }
+
+/* мобильная навигация частным лицам*/
+.navigationnav ul{
+    display: none;
+    z-index: 999;
+    width: 250px;
+}
+
+.navigationnav ul li{
+  padding: 10px;
+}
+.navigationnav ul > li:hover{
+  background-color: #fff;
+}
+.navigationnav ul ul > li:hover{
+  background-color: #fff;
+}
+.navigationnav ul li, .menu ul{
+  display: inline-block;
+}
+.navigationnav ul{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.navigationnav ul ul{
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+.navigationnav ul a{
+  color: #000;
+  text-decoration: none;
+}
+.navigationnav ul ul a{
+  color: #000;
+  text-decoration: none;
+}
+.navigationnav li:hover ul{
+  display: block;
+}
+
+.navigationnav li:hover li{
+  display: block;
+}
+
+.navigationnav{
+    z-index: 99;
+    display: none;
+}
+
+
+@media (max-width: 1025px){
+    .flex-auto nav{
+        display: none;
+    }
+    
+    
+    .flex-auto button{
+        margin-top: 10px;
+    }
+    
+    .ofic{
+        display: none;
+    }
+    
+    .navigationnav{
+        display: block;
+    }
+}
+
