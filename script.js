@@ -35,23 +35,10 @@ function sendForm() {
   });
 
 
-  let text = JSON.stringify({hello:'example'});
-  document.getElementById('downloadFile').addEventListener('click',()=>{
-    downloadAsFile(text);
-  })
- 
-  
-  function downloadAsFile(data) {
-    let a = document.createElement("a");
-    let file = new Blob([data], {type: 'application/json'});
-    a.href = URL.createObjectURL(file);
-    a.download = "example.txt";
-    a.click();
+var fileName = document.getElementById('cv').onchange = function() {
+  if (this.value){
+    document.getElementById('labelCv').innerHTML=(this.value.split(/(\\|\/)/g).pop())}
+  else {
+    document.getElementById('labelCv').innerHTML='Файл резюме (.docx,.doc,.pdf)'
   }
-     
-   
-    
-    
-
-
-
+}
