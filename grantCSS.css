@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+.body_content{
+    margin: 0 8%;
+}
+
+.font_fame{
+    font-family: 'Inconsolata', monospace;
+}
+
+.bars_img img{
+    float: right;
+    width: 40%;
+    position: relative;
+}
+
+.bars_text{
+    width: 50%;
+    padding-top: 30px;
+}
+
+.bars_block{
+    height: 350px;
+    
+}
+
+.bars_text .cnt__btn{
+    text-align: center;
+}
+
+.bars_text .relative{
+    margin-top: 10px;
+}
+
+.main_content{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.list_li{
+    text-align: left;
+}
+
+.stage_textcols {
+	white-space: nowrap;
+	font-size: 0;
+}
+.stage_textcols .textcols-item {
+	white-space: normal;	
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+	margin-right: 5%;
+	font-size: 18px;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+}
+.stage_textcols  .textcols-item:last-child {
+	margin-right: 0 ;
+}
+
+.application{
+    text-align: center;
+}
+
+.input_app{
+    padding: 0 0 0 10px;
+    font-size: 18px;
+    height: 60px; 
+    width: 500px;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+}
+
+.input_app.left{
+    margin: 10px 10px 20px 0;
+}
+
+.input_app.right{
+    margin: 10px 0 20px 10px;
+}
+
+.input_app.left.wd{
+    width: 512px;
+}
+
+.phone__w100{
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1250px){
+    .input_app.left{
+        margin: 10px 0px 20px 0;
+    }
+
+    .input_app.right{
+        margin: 10px 0 20px 0px;
+    }
+}
