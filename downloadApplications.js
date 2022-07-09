@@ -34,22 +34,26 @@ for(i = 0;i < downloadList.length; i++)
 {
     downloadbtns[i].addEventListener('click',(event)=>{
         var filters=readFilters()
-        console.log(filters['finishInterval'])
-        console.log(filters['startInterval'])
-     
-            if (confirm(createConfirmText(filters)))
+        var id=event.currentTarget.id
+        var start=filters['startInterval']
+        var finish=filters['finishInterval']
+        var condition=(new Date(finish)>new Date(start))||(finish=='')||(start=='')
+        if (condition){  
+            var infFilters=influenceFilters(filters, id)
+            if (confirm(createConfirmText(infFilters[0], infFilters[1])))
                 {
-                    console.log('Скачиваю', filters)
-                    getFile(serverURL+event.currentTarget.id.substring(5), fileName(event.currentTarget.id, filters[0]), filters, event.currentTarget.id)
+                    console.log('Скачиваю')
+                    getFile(serverURL+id.substring(5), fileName(id, infFilters[0]), infFilters[0], id)
                 }
             else
                 {
                     console.log('Я передумал')
                 } 
-            }
-       
-            
-    )
+        }
+        else {
+            alert('Начало подачи заявок не может быть позже её окончания!\nПроверьте правильность заполнения дат выгрузки.')
+        }
+    })
 }
 
 function getDateIntervalFromQuarter(quarter){
@@ -107,9 +111,6 @@ function readFilters(){
     if (finishInterval.length<10){
         finishInterval=''
     }
-    if (finishInterval<startInterval){
-        
-    }
 
     var city = document.getElementById('city').value
     var college = document.getElementById('college').value
@@ -119,26 +120,113 @@ function readFilters(){
 
     var filters={'unchecked':unchecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
                 'city':city, 'college':college, 'educationLevel':educationLevel, 'course':course,
-            'courseDirection':courseDirection}
+                'courseDirection':courseDirection}
     return filters
 }
 
-function onlyInfluenceFilters(filters, category){
-    if (category==''){
-
+function influenceFilters(filters, category){
+    var influencingFilters=filters
+    var nonInfluencingFilters=[]
+    if (category.includes('Probation')){
+        if (influencingFilters['city']!=''){
+            influencingFilters['city']=''
+            nonInfluencingFilters.push('город')
+        }
+        if (influencingFilters['college']!=''){
+            influencingFilters['college']=''
+            nonInfluencingFilters.push("учебное заведение")
+        }
+        if (influencingFilters['educationLevel']!=''){
+            influencingFilters['educationLevel']=''
+            nonInfluencingFilters.push("уровень образования")
+        }
+        if (influencingFilters['course']!=''){
+            influencingFilters['course']=''
+            nonInfluencingFilters.push("курс")
+        }
+        if (influencingFilters['courseDirection']!=''){
+            influencingFilters['courseDirection']=''
+            nonInfluencingFilters.push("выбранное направление курсов")
+        } 
     }
+    if (category.includes('Practice')){
+        if (influencingFilters['city']!=''){
+            influencingFilters['city']=''
+            nonInfluencingFilters.push('город')
+        }
+        if (influencingFilters['educationLevel']!=''){
+            influencingFilters['educationLevel']=''
+            nonInfluencingFilters.push("уровень образования")
+        }
+        if (influencingFilters['courseDirection']!=''){
+            influencingFilters['courseDirection']=''
+            nonInfluencingFilters.push("выбранное направление курсов")
+        } 
+    }
+    if (category.includes('Grant')){
+        if (influencingFilters['city']!=''){
+            influencingFilters['city']=''
+            nonInfluencingFilters.push('город')
+        }
+        if (influencingFilters['courseDirection']!=''){
+            influencingFilters['courseDirection']=''
+            nonInfluencingFilters.push("выбранное направление курсов")
+        } 
+    }
+    if (category.includes('University')){
+        if (influencingFilters['city']!=''){
+            influencingFilters['city']=''
+            nonInfluencingFilters.push('город')
+        }
+        if (influencingFilters['college']!=''){
+            influencingFilters['college']=''
+            nonInfluencingFilters.push("учебное заведение")
+        }
+        if (influencingFilters['educationLevel']!=''){
+            influencingFilters['educationLevel']=''
+            nonInfluencingFilters.push("уровень образования")
+        }
+        if (influencingFilters['course']!=''){
+            influencingFilters['course']=''
+            nonInfluencingFilters.push("курс")
+        }
+    }
+    return [influencingFilters, nonInfluencingFilters]
 }
 
-function selectedFilters(filters){
-
-    //первый элемент массива - фильтры, влияющие на результат
-    //второй - не влияющие
-    var c=[{'id':['название', 'value']}, {'id1':['название1', 'value']}]
-    return c
-}
-
-function createConfirmText(selectedFilters){
-    return 'Будет сформирован документ, соответствующий фильтрам: '+selectedFilters+'Следующие выбранные фильтры НЕ повлияют на результат выборки'
+function createConfirmText(influencingFilters, nonInfluencingFilters){
+    var response='Будет сформирован документ, соответствующий фильтрам: '
+    var responseInfluencingFilters=''
+    var nameFilters={'unchecked':'только не просмотренные', 'startInterval':'с ', 'finishInterval':'по ',
+    'city':'город', 'college':'учебное заведение', 'educationLevel':'уровень образования', 'course':'курс',
+    'courseDirection':'выбранное направление курсов'}
+    for (i = 0;i < Object.keys(influencingFilters).length; i++){
+        var key=Object.keys(influencingFilters)[i]
+        var value=Object.values(influencingFilters)[i]
+        if (key=='unchecked' & value==true){
+            responseInfluencingFilters+='\n* '+nameFilters[key]
+        }
+        else {
+            if (value!=''){
+                responseInfluencingFilters+='\n* '+ nameFilters[key] + ' '
+                if (key.includes('Interval')!=true){
+                    responseInfluencingFilters+='- '
+                }
+                responseInfluencingFilters+=value
+            }   
+        }   
+    }
+    if (responseInfluencingFilters=='') {
+        response='Вы не выбрали фильтры влияющие на результат.'
+    }
+    else {
+        response+=responseInfluencingFilters
+    }
+    if (nonInfluencingFilters.length!=0){
+        response+='\n\nСледующие выбранные фильтры НЕ повлияют на результат выборки: ' + nonInfluencingFilters
+    }
+    response+='\n\nЕсли всё верно, нажмите ОК'
+    return response
 }
 
 
@@ -163,6 +251,19 @@ function fileName(id, filters) {
             }
         }
     }
+    var nameFilters={'unchecked':'_только_не_просмотренные_раннее', 'startInterval':'_с_', 'finishInterval':'_по_',
+    'city':'_г.', 'college':'_', 'educationLevel':'_', 'course':'_курс',
+    'courseDirection':'_ВыбранноеНаправлениеКурсов_'}
+    for (i = 0;i < Object.values(filters).length; i++){
+        var key=Object.keys(filters)[i]
+        var value=Object.values(filters)[i]
+        if (value!='' & value!=false ) {
+            fName+=nameFilters[key]
+            if (key!='unchecked'){
+                fName+=value
+            }
+        }
+    }
     return fName
 }
 
@@ -172,6 +273,7 @@ async function getFile(serverURL, fName, filters, id) {
     xhr.setRequestHeader('filters', filters )
     xhr.setRequestHeader('fileName', fName )
     xhr.setRequestHeader('downloadTo', id.substring(0,5))
+    console.log(filters, fName, id.substring(0,5))
     xhr.onload = function() {
         let responseObj = xhr.response;
         if (id.includes('local')){
