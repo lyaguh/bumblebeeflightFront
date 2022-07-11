@@ -338,10 +338,12 @@
         </div>
     </section>
 
-    <section id="formDropZone">
+    <section >
+        
         <div id="formLabel">
             Заполните форму
         </div>
+        <div id="dropZone">
         <form id="applicationForm" name="application"  method="post" action="/api/probation">
             <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
             <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
@@ -350,12 +352,13 @@
             
             <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
             <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
-            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea>
-            <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
+            <input type="text" placeholder="Город" name="city" id="city" required>
+            <!-- <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea> -->
+            <!-- <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required> -->
 
 
-            <input type="file" multiple accept=".docx,.doc,.pdf" name="cv" id="cv" style="display:none;"/>
-            <div id="dropZone">Перетащите файлы сюда</div>
+            <input type="file" multiple accept=".docx,.doc,.pdf" name="files" id="files" style="display:none;"/>
+            <div id="sdropZone">Перетащите файлы сюда</div>
             <label id="labelCv" for="cv">Или выберите их здесь</label>
             <ul id="listOfFiles">
                 
@@ -365,6 +368,7 @@
                 Отправить
             </button>
         </form>
+    </div>
     </section>
 
 

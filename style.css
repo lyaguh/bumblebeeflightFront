@@ -1184,7 +1184,6 @@ main section{
 }
 
 #applicationForm {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1197,7 +1196,12 @@ main section{
     margin: 3% 0;
 }
 
-#dropZone.drop {
+#dropZone {
+    display: flex;
+    justify-content: center;
+}
+
+#applicationForm.drop {
     z-index: 2;
 
     background: #fff;
@@ -1206,7 +1210,7 @@ main section{
     border-width: 2px;
 }
 
-#dropZone.hover {
+#applicationForm.hover {
     z-index: 2;
 
     background: #ddd;
@@ -1215,7 +1219,7 @@ main section{
     border-width: 2px;
 }
 
-#dropZone.error {
+#applicationForm.error {
     z-index: 2;
 
     background: #ddd;
