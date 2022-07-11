@@ -1,4 +1,4 @@
-let serverURL='https://01d7-85-249-26-99.eu.ngrok.io'
+let serverURL='https://0b9c-178-207-91-7.eu.ngrok.io'
 const downloadbtns=document.getElementsByName('downloadbtn')
 
 const uncheckedFilter=document.getElementById('uncheckedFilter')
@@ -270,9 +270,9 @@ function fileName(id, filters) {
 async function getFile(serverURL, fName, filters, id) {
     const xhr = new XMLHttpRequest();
     xhr.open('get', serverURL);
-    xhr.setRequestHeader('filters', filters )
-    xhr.setRequestHeader('fileName', fName )
-    xhr.setRequestHeader('downloadTo', id.substring(0,5))
+    xhr.setRequestHeader('filters', encodeURIComponent(filters) )
+    xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
+    xhr.setRequestHeader('downloadTo', encodeURIComponent(id.substring(0,5)))
     console.log(filters, fName, id.substring(0,5))
     xhr.onload = function() {
         let responseObj = xhr.response;
