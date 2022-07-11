@@ -55,6 +55,12 @@ router.route('/applications')
         xhr.send();
 })*/
 
+router.route('/op')
+    .get(function(req, res) {
+        console.log(req.headers['date_open'])
+        console.log(989898989898222222)
+    })
+
 router.route('/practice')
     .get(function(req, res) {
         res.sendFile(__dirname+'/practice.html') 

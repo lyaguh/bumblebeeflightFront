@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
+    <style>
+        .activeFormatDate {background-color: aqua;}
+        .inactiveFormatDate {background-color: cadetblue;}
+    </style>
 </head>
 
 <body>
@@ -65,12 +69,12 @@
                                         <!---->Среднему и крупному бизнесу
                                     </a>
                                 </li>
-                                <li class="level1__li active" data-v-7f316a72 data-v-67a77140>
+                                <li class="level1__li" data-v-7f316a72 data-v-67a77140>
                                     <a href="/" rel="noopener noreferrer" class="level1__link">
                                         <!---->Студенту
                                     </a>
                                 </li>
-                                <li class="level1__li" data-v-7f316a72 data-v-67a77140>
+                                <li class="level1__li active" data-v-7f316a72 data-v-67a77140>
                                     <a href="/applications" rel="noopener noreferrer" class="level1__link">
                                         <!---->Заявки
                                     </a>
@@ -92,7 +96,7 @@
                         </nav>  
                     </div>
                     <nav class='navigationnav' id='chastn'>
-                          <ul>
+                        <ul>
                             <li><a href="#" rel="noopener noreferrer" class="level1__link">
                                         <!----> <img src="img/hamburger_button_menu_icon_155296.png" alt="">
                                     </a>
@@ -279,59 +283,282 @@
 
     <!--main part-->
         
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <div class="mx-auto row">
-          <div class="col" >
-            <div class="card">
-                <div class="imgcard">
-                  <img src="img/%D1%81%D1%82%D0%B0%D0%B6%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0.png"     class="card-img-top" alt="стажировка">
-                  </div>
-              <div class="card-body">
-                <h5 class="card-title">Стажировка</h5>
-                <a name="downloadbtn" id="/api/Probation/csv" class="btn btn-outline-dark">Скачать заяки</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-             <div class="imgcard">
-              <img src="img/%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0.png" class="card-img-top" alt="практика">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Практика</h5>
-                <a name="downloadbtn" id="/api/Practice/csv" class="btn btn-outline-dark">Скачать заяки</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-             <div class="card">
-             <div class="imgcard">
-              <img src="img/%D0%BA%D1%83%D1%80%D1%81%D1%8B.png" class="card-img-top" alt="курсы">
-                 </div>
-                </div>
-              <div class="card-body">
-                <h5 class="card-title">Корпоративный университет</h5>
-                <a name="downloadbtn" id="/api/UniversityForm/csv" class="btn btn-outline-dark">Скачать заяки</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-             <div class="imgcard">
-              <img src="img/%D1%81%D1%82%D0%B8%D0%BF%D0%B5%D0%BD%D0%B4%D0%B8%D1%8F.png" class="card-img-top" alt="стипендия">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Стипендия</h5>
-                <a name="downloadbtn" id="/api/Grant/csv" class="btn btn-outline-dark">Скачать заяки</a>
-              </div>
-            </div>
-          </div>
+    <section id="filters">
+        <h3>Фильтры:</h3>
+
+        <div id="uncheckedFilter">
+            <p>
+                <input type="checkbox" id="uncheckedChoice" checked> Только не просмотренные
+            </p>
         </div>
 
+        <div id="dateFilters">
+            <p>Дата подачи заявки:</p>
 
+            <div style="display: flex;">
+                <div class="inactiveFormatDate" name="dateFormat" id="firstDateFormat">
+                    <p>Вариант 1: <input type="radio" name="dateformat"> </p>
+                    <p>C  <input type="date" name="start"></p>
+                    <p>по
+                    <input type="date"></p>
+                </div>
 
+                <div class="inactiveFormatDate" name="dateFormat" id="secondDateFormat">
+                    <p>Вариант 2: 
+                        <input type="radio" name="dateformat"> 
+                    </p>           
+                    <p>C  
+                        <select name="start">
+                            <option value="-3" selected>Не выбрано</option>
+                            <option value="1">1 квартал</option>
+                            <option value="2">2 квартал</option>
+                            <option value="3">3 квартал</option>
+                            <option value="4">4 квартал</option>
+                        </select>
+                        <input type="number" value="2022">г.
+                    </p>
+                    <p>по
+                        <select>
+                            <option value="0" selected>Не выбрано</option>
+                            <option value="1">1 квартал</option>
+                            <option value="2">2 квартал</option>
+                            <option value="3">3 квартал</option>
+                            <option value="4">4 квартал</option>
+                        </select>
+                        <input type="number" value="2022">г.
+                    </p>
+                </div> 
 
+                <div class="inactiveFormatDate" name="dateFormat" id="thirdDateFormat"> 
+                    <p>Вариант 3: 
+                        <input type="radio" name="dateformat"> 
+                    </p>
+                    <p>За 
+                        <select>
+                            <option value="0" selected>Не выбрано</option>
+                            <option value="1">1 квартал</option>
+                            <option value="2">2 квартал</option>
+                            <option value="3">3 квартал</option>
+                            <option value="4">4 квартал</option>
+                        </select> 
+                        <input type="number" value="2022">г.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="cityFilter">
+            <p>Город: <input type="text" id="city" placeholder="Не выбрано"></p>
+        </div>
+
+        <div id="collegeFilter">
+            <p>Учебное заведение: <input type="text" id="college" placeholder="Не выбрано"></p>
+        </div>
+
+        <div id="EducationLevelFilter">
+            <p>Уровень образования: 
+                <select class="input_app left wd" name="EducationLevel" id="EducationLevel">
+                    <option value="" selected>Не выбрано</option>
+                    <option value="Колледж/Техникум" >Колледж/Техникум</option>
+                    <option value="Бакалавриат" >Бакалавриат</option>
+                    <option value="Специалитет" >Специалитет</option>
+                    <option value="Магистратура" >Магистратура</option>
+                </select> 
+            </p>
+        </div>
+
+        <div id="courseFilter">
+            <p>Курс: 
+                <select class="input_app left wd" name="course" id="course">
+                    <option value="" selected>Не выбрано</option>
+                    <option value="1">1 курс</option>
+                    <option value="2">2 курс</option>
+                    <option value="3">3 курс</option>
+                    <option value="4">4 курс</option>
+                    <option value="5">5 курс</option>
+                    <option value="6">6 курс</option>
+                </select>
+            </p>
+        </div>
+
+        <div id="courseDirectionFilter">
+            <p>Выбранное направление учебных курсов: 
+                <select name="courseDirection" id="courseDirection">
+                    <option value="" selected>Не выбрано</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </p>
+        </div>
+
+        <div class="flex-auto relative" name="cleanFilter">
+            <!---->
+            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                <button type="button" name="buttonCleanFilter"
+                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                        <a  href="/applications">Очистить фильтры</a>
+                    </span>
+                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                </button>
+                <div class="shadow__button" data-v-54a1b447>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <div class="mx-auto row" name="downloadCard">
+            <div class="col" id="downloadProbation">
+                <div class="card">
+                    <div class="imgcard">
+                        <img src="img/%D1%81%D1%82%D0%B0%D0%B6%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0.png"     class="card-img-top" alt="стажировка">
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Стажировка</h5>
+
+                        <div class="flex-auto relative">
+                            <!---->
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn" id="local/api/Probation/csv">Скачать заяки</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn"  id="email/api/Probation/csv">Отправить на почту</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" id="downloadPractice">
+                <div class="card">
+                    <div class="imgcard">
+                        <img src="img/%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0.png" class="card-img-top" alt="практика">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Практика</h5>
+
+                        <div class="flex-auto relative">
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn" id="local/api/Practice/csv">Скачать заяки</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn"  id="email/api/Practice/csv">Отправить на почту</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" id="downloadUniversity">
+                <div class="card">
+                    <div class="imgcard">
+                        <img src="img/%D0%BA%D1%83%D1%80%D1%81%D1%8B.png" class="card-img-top" alt="курсы">
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Корпоративный университет</h5>
+                        <div class="flex-auto relative">
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn" id="local/api/UniversityForm/csv">Скачать заяки</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>   
+                            
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn"  id="email/api/UniversityForm/csv">Отправить на почту</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" id="downloadGrant">
+                <div class="card">
+                    <div class="imgcard">
+                        <img src="img/%D1%81%D1%82%D0%B8%D0%BF%D0%B5%D0%BD%D0%B4%D0%B8%D1%8F.png" class="card-img-top" alt="стипендия">
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Стипендия</h5>
+                        <div class="flex-auto relative">
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn" id="local/api/Grant/csv">Скачать заяки</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+
+                            <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                                <button type="button" name="button"
+                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    <span class="button__name button__name__pc xs" data-v-54a1b447>
+                                        <a name="downloadbtn"  id="email/api/Grant/csv">Отправить на почту</a>
+                                    </span>
+                                    <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                                </button>
+                                <div class="shadow__button" data-v-54a1b447>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     <!--footer-->
