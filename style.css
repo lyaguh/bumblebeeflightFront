@@ -1236,4 +1236,10 @@ main section{
 
 #listOfFiles>li{
     list-style-type:decimal;
+    /* display: flex; */
+}
+
+#labelCv {
+    font-weight:600;
+    cursor: pointer;
 }
