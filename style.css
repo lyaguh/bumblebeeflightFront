@@ -1183,14 +1183,14 @@ main section{
     border-radius: 5%;
 }
 
-#applicationForm {
+/* #applicationForm {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
     margin: 0 auto;
     width: 30%;
-}
+} */
 
 #practiceForm input {
     margin: 3% 0;
