@@ -1,4 +1,4 @@
-let serverURL='https://0b9c-178-207-91-7.eu.ngrok.io'
+let serverURL='https://6b85-178-207-91-7.eu.ngrok.io'
 const downloadbtns=document.getElementsByName('downloadbtn')
 
 const uncheckedFilter=document.getElementById('uncheckedFilter')
@@ -111,16 +111,12 @@ function readFilters(){
     if (finishInterval.length<10){
         finishInterval=''
     }
-
-    var city = document.getElementById('city').value
     var college = document.getElementById('college').value
-    var educationLevel = document.getElementById('EducationLevel').value
     var course = document.getElementById('course').value
     var courseDirection = document.getElementById('courseDirection').value
 
     var filters={'unchecked':unchecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
-                'city':city, 'college':college, 'educationLevel':educationLevel, 'course':course,
-                'courseDirection':courseDirection}
+                 'college':college, 'course':course,'courseDirection':courseDirection}
     return filters
 }
 
@@ -128,17 +124,9 @@ function influenceFilters(filters, category){
     var influencingFilters=filters
     var nonInfluencingFilters=[]
     if (category.includes('Probation')){
-        if (influencingFilters['city']!=''){
-            influencingFilters['city']=''
-            nonInfluencingFilters.push('город')
-        }
         if (influencingFilters['college']!=''){
             influencingFilters['college']=''
             nonInfluencingFilters.push("учебное заведение")
-        }
-        if (influencingFilters['educationLevel']!=''){
-            influencingFilters['educationLevel']=''
-            nonInfluencingFilters.push("уровень образования")
         }
         if (influencingFilters['course']!=''){
             influencingFilters['course']=''
@@ -150,46 +138,16 @@ function influenceFilters(filters, category){
         } 
     }
     if (category.includes('Practice')){
-        if (influencingFilters['city']!=''){
-            influencingFilters['city']=''
-            nonInfluencingFilters.push('город')
-        }
-        if (influencingFilters['educationLevel']!=''){
-            influencingFilters['educationLevel']=''
-            nonInfluencingFilters.push("уровень образования")
-        }
         if (influencingFilters['courseDirection']!=''){
             influencingFilters['courseDirection']=''
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
     if (category.includes('Grant')){
-        if (influencingFilters['city']!=''){
-            influencingFilters['city']=''
-            nonInfluencingFilters.push('город')
-        }
         if (influencingFilters['courseDirection']!=''){
             influencingFilters['courseDirection']=''
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
-    }
-    if (category.includes('University')){
-        if (influencingFilters['city']!=''){
-            influencingFilters['city']=''
-            nonInfluencingFilters.push('город')
-        }
-        if (influencingFilters['college']!=''){
-            influencingFilters['college']=''
-            nonInfluencingFilters.push("учебное заведение")
-        }
-        if (influencingFilters['educationLevel']!=''){
-            influencingFilters['educationLevel']=''
-            nonInfluencingFilters.push("уровень образования")
-        }
-        if (influencingFilters['course']!=''){
-            influencingFilters['course']=''
-            nonInfluencingFilters.push("курс")
-        }
     }
     return [influencingFilters, nonInfluencingFilters]
 }
@@ -198,7 +156,7 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
     var response='Будет сформирован документ, соответствующий фильтрам: '
     var responseInfluencingFilters=''
     var nameFilters={'unchecked':'только не просмотренные', 'startInterval':'с ', 'finishInterval':'по ',
-    'city':'город', 'college':'учебное заведение', 'educationLevel':'уровень образования', 'course':'курс',
+    'college':'учебное заведение', 'course':'курс',
     'courseDirection':'выбранное направление курсов'}
     for (i = 0;i < Object.keys(influencingFilters).length; i++){
         var key=Object.keys(influencingFilters)[i]
@@ -252,8 +210,7 @@ function fileName(id, filters) {
         }
     }
     var nameFilters={'unchecked':'_только_не_просмотренные_раннее', 'startInterval':'_с_', 'finishInterval':'_по_',
-    'city':'_г.', 'college':'_', 'educationLevel':'_', 'course':'_курс',
-    'courseDirection':'_ВыбранноеНаправлениеКурсов_'}
+    'college':'_', 'course':'_курс','courseDirection':'_ВыбранноеНаправлениеКурсов_'}
     for (i = 0;i < Object.values(filters).length; i++){
         var key=Object.keys(filters)[i]
         var value=Object.values(filters)[i]
@@ -273,11 +230,13 @@ async function getFile(serverURL, fName, filters, id) {
     xhr.setRequestHeader('filters', encodeURIComponent(filters) )
     xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
     xhr.setRequestHeader('downloadTo', encodeURIComponent(id.substring(0,5)))
+    xhr.responseType='blob'
     console.log(filters, fName, id.substring(0,5))
     xhr.onload = function() {
         let responseObj = xhr.response;
+        console.log('response',typeof responseObj)
         if (id.includes('local')){
-            downloadAsFile(responseObj, fName)
+            downloadAsFile(responseObj.data, fName)
             alert('Файл успешно скачан!')
         }
         else {
@@ -289,10 +248,17 @@ async function getFile(serverURL, fName, filters, id) {
     xhr.send();
 } 
 
-function downloadAsFile(data, fName) {
+async function downloadAsFile(data, fName) {
+    // const zip = new JSZip();
+    // await zip.loadAsync(data, {base64: true});
+    // const blob = await zip.generateAsync({type:"blob"});
     let a = document.createElement("a");
-    let file = new Blob(["\uFEFF"+data], {type: "text/csv;charset=UTF-8"});
+    console.log(data)
+    //console.log("\uFEFF"+data)
+    //let file = new Blob([data], { type: 'application/zip' })
+    let file = new Blob(["\uFEFF"+data], {type: "application/x-zip-compressed"});
     a.href = URL.createObjectURL(file);
-    a.download = fName+".csv";
+    a.download = fName;
     a.click();
+    
 }
