@@ -31,9 +31,28 @@ function sendForm() {
 applicationForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 	if (fileInput.files.length<5){
-		alert(`Прикреплено файлов: ${fileInput.files.length}, а нужно 5(`)
+    var forgottenFiles = []
+    for (var forgottenFile of nameOfFile){
+      var checkingName = false
+      for (var attachedFile of fileInput.files){
+        if(attachedFile.name.toLowerCase().includes(forgottenFile.toLowerCase())){
+          checkingName=true
+          
+        }
+      }
+      if (checkingName==false) {
+        forgottenFiles.push(forgottenFile)
+      }
+    }
+
+		alert(`Вы забыли прикрепить следующие файлы: ${forgottenFiles.join(', ')}.`)
 	}
-	sendForm();
+  else{
+    sendForm();
+    applicationForm.reset();
+  }
+
+
 });
 
 
@@ -54,7 +73,7 @@ fileInput.onchange = function () {
 
 
 var dropZone = document.getElementById('applicationForm');
-var maxFileSize = 1000000;
+var maxFileSize = 3000000;
 
 if (typeof (window.FileReader) == 'undefined') {
 	dropZone.text('Не поддерживается браузером!');
@@ -73,11 +92,11 @@ dropZone.ondragleave = function () {
 };
 
 var listOfFiles = document.getElementById('listOfFiles')
+
 dropZone.ondrop = function (event) {
 	event.preventDefault();
 	dropZone.classList.remove('hover');
 	dropZone.classList.add('drop');
-
 	attachingFiles(event.dataTransfer.files)
 
 };
@@ -126,18 +145,22 @@ function attachingFiles(attachedFilesDT) {
 		let liNew = document.createElement('li');
 		//liNew.innerHTML = ;
 		liNew.innerHTML += `<div style="display:flex;margin: 0"><p style="width:90%;margin: 0">${currentFile.name}</p>
-		<img src="./img/w0kcCuCiO7c.png" alt="deleteFile" title="Открепить файл" style="width:40px;height:40px; cursor:pointer">  </div>`
+    <svg style="width:20px;height:20px; cursor:pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg>
+</div>`
 		listOfFiles.append(liNew)
 		
 	}
 
-	for (var li of listOfFiles.querySelectorAll('img')){
+	for (var li of listOfFiles.querySelectorAll('svg')){
 		li.addEventListener('click',(event)=>{
 			event.currentTarget.parentElement.parentElement.remove()
 			var attachedFilesForLi = Array.from(fileInput.files);
 			var newFilesDTForLi = new DataTransfer()
 			for (i = 0; i < attachedFilesForLi.length; i++) {
-				console.log(event.currentTarget.parentElement.firstChild.textContent, attachedFilesForLi[i])
+				console.log('в цикле',event.currentTarget.parentElement.firstChild.textContent, attachedFilesForLi[i])
 				if(event.currentTarget.parentElement.firstChild.textContent!=attachedFilesForLi[i].name)
 				{newFilesDTForLi.items.add(attachedFilesForLi[i])}
 			}
@@ -148,10 +171,16 @@ function attachingFiles(attachedFilesDT) {
 	}
 
 	existedFiles = Array.from(fileInput.files)
+  console.log('existedFiles после удаления',existedFiles)
 }
 var existedFiles = Array.from(fileInput.files)
 
-var nameOfFile=['инн','паспорт','снилс','анкета','соглашение','резюме']
+var title = document.getElementsByTagName("title")[0].innerHTML
+console.log(title)
+if (title=='Стажировка')var nameOfFile=['инн','паспорт','снилс','анкета','резюме']
+else var nameOfFile=['инн','паспорт','снилс','анкета','соглашение']
+
+
 
 
 Array.prototype.unique = function () {
@@ -161,7 +190,6 @@ Array.prototype.unique = function () {
 		var currentFileName=''
 		for (var k=0;  k<nameOfFile.length; ++k)
 		{
-			console.log('ыыыыыыыыыыыыыыыыы',a[i].name.toLowerCase())
 			if (a[i].name.toLowerCase().includes(nameOfFile[k])){
 				
 				currentFileName=nameOfFile[k]
