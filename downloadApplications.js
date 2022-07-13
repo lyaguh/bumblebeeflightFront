@@ -1,4 +1,4 @@
-let serverURL='https://6b85-178-207-91-7.eu.ngrok.io'
+let serverURL='https://197a-178-207-91-7.eu.ngrok.io'
 const downloadbtns=document.getElementsByName('downloadbtn')
 
 const uncheckedFilter=document.getElementById('uncheckedFilter')
@@ -128,24 +128,24 @@ function influenceFilters(filters, category){
             influencingFilters['college']=''
             nonInfluencingFilters.push("учебное заведение")
         }
-        if (influencingFilters['course']!=''){
-            influencingFilters['course']=''
+        if (influencingFilters['course']!=-1){
+            influencingFilters['course']=-1
             nonInfluencingFilters.push("курс")
         }
-        if (influencingFilters['courseDirection']!=''){
-            influencingFilters['courseDirection']=''
+        if (influencingFilters['courseDirection']!=-1){
+            influencingFilters['courseDirection']=-1
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
     if (category.includes('Practice')){
-        if (influencingFilters['courseDirection']!=''){
-            influencingFilters['courseDirection']=''
+        if (influencingFilters['courseDirection']!=-1){
+            influencingFilters['courseDirection']=-1
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
     if (category.includes('Grant')){
-        if (influencingFilters['courseDirection']!=''){
-            influencingFilters['courseDirection']=''
+        if (influencingFilters['courseDirection']!=-1){
+            influencingFilters['courseDirection']=-1
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
@@ -165,7 +165,7 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
             responseInfluencingFilters+='\n* '+nameFilters[key]
         }
         else {
-            if (value!=''){
+            if (value!='' & value!=-1){
                 responseInfluencingFilters+='\n* '+ nameFilters[key] + ' '
                 if (key.includes('Interval')!=true){
                     responseInfluencingFilters+='- '
@@ -233,10 +233,10 @@ async function getFile(serverURL, fName, filters, id) {
     xhr.responseType='blob'
     console.log(filters, fName, id.substring(0,5))
     xhr.onload = function() {
-        let responseObj = xhr.response;
+        let responseObj = this.response;
         console.log('response',typeof responseObj)
         if (id.includes('local')){
-            downloadAsFile(responseObj.data, fName)
+            downloadAsFile(responseObj, fName)
             alert('Файл успешно скачан!')
         }
         else {
@@ -249,15 +249,9 @@ async function getFile(serverURL, fName, filters, id) {
 } 
 
 async function downloadAsFile(data, fName) {
-    // const zip = new JSZip();
-    // await zip.loadAsync(data, {base64: true});
-    // const blob = await zip.generateAsync({type:"blob"});
     let a = document.createElement("a");
     console.log(data)
-    //console.log("\uFEFF"+data)
-    //let file = new Blob([data], { type: 'application/zip' })
-    let file = new Blob(["\uFEFF"+data], {type: "application/x-zip-compressed"});
-    a.href = URL.createObjectURL(file);
+    a.href = URL.createObjectURL(data);
     a.download = fName;
     a.click();
     
