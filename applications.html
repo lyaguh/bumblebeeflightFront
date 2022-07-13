@@ -8,11 +8,8 @@
     <title>Заявки</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
+    <link rel="stylesheet" href="applicationsCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
-    <style>
-        .activeFormatDate {background-color: aqua;}
-        .inactiveFormatDate {background-color: cadetblue;}
-    </style>
 </head>
 
 <body>
@@ -283,7 +280,7 @@
 
     <!--main part-->
         
-    <section id="filters">
+    <section id="filters" class="main">
         <h3>Фильтры:</h3>
 
         <div id="uncheckedFilter">
@@ -295,10 +292,10 @@
         <div id="dateFilters">
             <p>Дата подачи заявки:</p>
 
-            <div style="display: flex;">
+            <div style="display: flex;" class="variants">
                 <div class="inactiveFormatDate" name="dateFormat" id="firstDateFormat">
                     <p>Вариант 1: <input type="radio" name="dateformat"> </p>
-                    <p>C  <input type="date" name="start"></p>
+                    <p>C&ensp; <input type="date" name="start"></p>
                     <p>по
                     <input type="date"></p>
                 </div>
@@ -307,7 +304,7 @@
                     <p>Вариант 2: 
                         <input type="radio" name="dateformat"> 
                     </p>           
-                    <p>C  
+                    <p>C&ensp;   
                         <select name="start">
                             <option value="-3" selected>Не выбрано</option>
                             <option value="1">1 квартал</option>
@@ -455,12 +452,12 @@
 
                     <div class="card-body">
                         <h5 class="card-title">Стажировка</h5>
-
+							</br>
                         <div class="flex-auto relative">
                             <!---->
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn" id="local/api/Probation/zip">Скачать заяки</a>
                                     </span>
@@ -472,7 +469,7 @@
 
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn"  id="email/api/Probation/zip">Отправить на почту</a>
                                     </span>
@@ -493,11 +490,11 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Практика</h5>
-
+							</br>
                         <div class="flex-auto relative">
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn" id="local/api/Practice/zip">Скачать заяки</a>
                                     </span>
@@ -509,7 +506,7 @@
 
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn"  id="email/api/Practice/zip">Отправить на почту</a>
                                     </span>
@@ -534,7 +531,7 @@
                         <div class="flex-auto relative">
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn" id="local/api/UniversityForm/zip">Скачать заяки</a>
                                     </span>
@@ -546,7 +543,7 @@
                             
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn"  id="email/api/UniversityForm/zip">Отправить на почту</a>
                                     </span>
@@ -568,10 +565,11 @@
 
                     <div class="card-body">
                         <h5 class="card-title">Стипендия</h5>
+                        	</br>
                         <div class="flex-auto relative">
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn" id="local/api/Grant/zip">Скачать заяки</a>
                                     </span>
@@ -583,7 +581,7 @@
 
                             <div class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
                                 <button type="button" name="button"
-                                    class="button color__neon xs phone__w100" data-v-54a1b447>
+                                    class="button color__neon xs phone__w100 a" data-v-54a1b447>
                                     <span class="button__name button__name__pc xs" data-v-54a1b447>
                                         <a name="downloadbtn"  id="email/api/Grant/zip">Отправить на почту</a>
                                     </span>

@@ -1,0 +1,45 @@
+.main{
+    margin: 0 7%;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding: 10px;
+}
+
+.mx-auto.row{
+	padding: 0 5.9%;
+}
+
+.button.color__neon.xs.phone__w100.a{
+    margin-top: 10px;
+}
+
+
+.variants{
+    display: grid;
+    gap: 10px 15px;
+    justify-content: center;
+}
+
+.inactiveFormatDate{
+    width: 400px;
+	background-color: rgba(0,0,0,.125);
+	border-radius: 4%;
+	padding: 5px;
+	
+}
+
+.activeFormatDate{
+	width: 400px;
+	background-color: rgba(0,0,0,.125);
+	border-radius: .25rem;
+	padding: 5px;
+	border: 2px solid #00b2a9;
+}
+
+#collegeFilter{
+	margin-top: 10px;
+}
+
+select, input{
+	border: 1px solid #c9c9c9;
+}
