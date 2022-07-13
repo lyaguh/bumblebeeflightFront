@@ -314,6 +314,14 @@
             <div>Получи приглашение на практику</div>
         </section>
 
+        <section id="stepsToWriteIn">
+            <div>Как подать заявку?</div>
+            <div>Скачай и заполни <a href="Анкета_ПАО_Ак_Барс_Банк_для_студентов.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">анкету</a> и <a href="Соглашение_о_конфиденциальности1.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">соглашение о конфиденциальности</a></div>
+            <div>Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и соглашения в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
+            <div>Заполни форму</div>
+            <div>Profit</div>
+        </section>
+
         <section id="practiceFormArea">
             <div id="formLabel">
                 Заполните форму
@@ -322,24 +330,8 @@
                 <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
                 <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
                 <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
-                
-                <select name="course" id="course" required >
-                    <option value="" disabled selected>Курс</option>
-                    <option value="1">1 курс</option>
-                    <option value="2">2 курс</option>
-                    <option value="3">3 курс</option>
-                    <option value="4">4 курс</option>
-                    <option value="5">5 курс</option>
-                    <option value="6">6 курс</option>
-                </select>
-                <input type="text" placeholder="ВУЗ" name="college" id="college" required>
-                <input type="number" placeholder="Средний балл" step="0.01" name="averageMarks" id="averageMarks" required pattern="\d+(,\d{2})?">
-                <input type="text" placeholder="Специальность" name="speciality" id="speciality" required pattern="[А-Яа-яЁё]{1,}">
-                <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
                 <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
-                <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
-                <textarea name="aboutMe" id="aboutMe" cols="30" rows="10" placeholder="О вас "></textarea>
-                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea>
+                <input type="email" placeholder="Электронная почта" name="email" id="email" required>
 
                 
                 <button type="submit">

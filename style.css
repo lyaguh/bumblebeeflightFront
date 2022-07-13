@@ -1183,7 +1183,7 @@ main section{
     border-radius: 5%;
 }
 
-#applicationForm {
+/* #applicationForm {
     
     display: flex;
     flex-direction: column;
@@ -1191,7 +1191,7 @@ main section{
     text-align: center;
     margin: 0 auto;
     width: 30%;
-}
+} */
 
 #practiceForm input {
     margin: 3% 0;
