@@ -338,23 +338,30 @@
         </div>
     </section>
 
-    <section id="formDropZone">
+    <section id="stepsToWriteIn">
+        <div>Как подать заявку?</div>
+        <div>Скачай и заполни <a style="text-decoration:none; font-weight: 500; color: black;" href="Анкета ПАО Ак Барс Банк.doc" download="">анкету</a></div>
+        <div>Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и резюме в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
+        <div>Заполни форму</div>
+        <div>Profit</div>
+    </section>
+
+    <section id="formDropZone" class="forms_form mn">
         <div id="formLabel">
             Заполните форму
         </div>
-        <form id="applicationForm" name="application"  method="post" action="/api/probation">
-            <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
-            <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
-            <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
+        <form id="application" name="application"  method="post" action="/api/probation">
+            <input class="input_app left wd" type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
+            <input class="input_app " type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="input_app left" type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
             
             
-            <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
-            <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
-            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Комментарии"></textarea>
-            <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
+            <input class="input_app left" type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+            <input class="input_app left" type="emai" placeholder="Электронная почта" name="email" id="email" required>
+            
 
 
-            <input type="file" multiple accept=".docx,.doc,.pdf" name="cv" id="cv" style="display:none;"/>
+            <input class="input_app left" type="file" multiple accept=".docx,.doc,.pdf" name="cv" id="cv" style="display:none;"/>
             <div id="dropZone">Перетащите файлы сюда</div>
             <label id="labelCv" for="cv">Или выберите их здесь</label>
             <ul id="listOfFiles">
