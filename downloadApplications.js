@@ -1,4 +1,28 @@
-let serverURL='https://25db-178-204-72-23.eu.ngrok.io'
+let serverURL='https://197a-178-207-91-7.eu.ngrok.io'
+if (!window.jQuery) {
+	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
+  }
+
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 2,
+		language: "ru"
+	});
+    $('#college').select2({
+        ajax: {
+          url: 'https://25db-178-204-72-23.eu.ngrok.io/api/College',
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          }
+        }
+      });
+});
+
+
+
 const downloadbtns=document.getElementsByName('downloadbtn')
 
 const isCheckedFilter=document.getElementById('uncheckedFilter')
@@ -262,3 +286,4 @@ async function downloadAsFile(data, fName) {
     a.download = fName;
     a.click(); 
 }
+
