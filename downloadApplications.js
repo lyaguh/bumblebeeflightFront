@@ -1,16 +1,16 @@
-let serverURL='https://197a-178-207-91-7.eu.ngrok.io'
+let serverURL='https://25db-178-204-72-23.eu.ngrok.io'
 const downloadbtns=document.getElementsByName('downloadbtn')
 
-const uncheckedFilter=document.getElementById('uncheckedFilter')
-const uncheckedChoice=document.getElementById('uncheckedChoice')
-uncheckedFilter.addEventListener('click', ()=>{
-    if (uncheckedChoice.checked==true)
+const isCheckedFilter=document.getElementById('uncheckedFilter')
+const isCheckedChoice=document.getElementById('uncheckedChoice')
+isCheckedFilter.addEventListener('click', ()=>{
+    if (isCheckedChoice.checked==true)
     {
-        uncheckedChoice.checked=false
+        isCheckedChoice.checked=false
     }
     else
     {
-        uncheckedChoice.checked=true
+        isCheckedChoice.checked=true
     }
 })
 
@@ -30,6 +30,7 @@ for(i = 0;i < dateFormatList.length; i++)
 }
 
 var downloadList = Array.prototype.slice.call(downloadbtns);
+var courseDirectionList = document.getElementById('courseDirection')
 for(i = 0;i < downloadList.length; i++)
 {
     downloadbtns[i].addEventListener('click',(event)=>{
@@ -43,7 +44,7 @@ for(i = 0;i < downloadList.length; i++)
             if (confirm(createConfirmText(infFilters[0], infFilters[1])))
                 {
                     console.log('Скачиваю')
-                    getFile(serverURL+id.substring(5), fileName(id, infFilters[0]), infFilters[0], id)
+                    sendRequest(serverURL+id, fileName(id, infFilters[0]), infFilters[0], id)
                 }
             else
                 {
@@ -78,7 +79,7 @@ function getDateIntervalFromQuarter(quarter){
 }
 
 function readFilters(){
-    var unchecked=uncheckedChoice.checked
+    var isChecked=isCheckedChoice.checked
 
     var startInterval=''
     var finishInterval=''  
@@ -113,9 +114,9 @@ function readFilters(){
     }
     var college = document.getElementById('college').value
     var course = document.getElementById('course').value
-    var courseDirection = document.getElementById('courseDirection').value
+    var courseDirection = courseDirectionList.value
 
-    var filters={'unchecked':unchecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
+    var filters={'isChecked':isChecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
                  'college':college, 'course':course,'courseDirection':courseDirection}
     return filters
 }
@@ -149,19 +150,20 @@ function influenceFilters(filters, category){
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
+
     return [influencingFilters, nonInfluencingFilters]
 }
 
 function createConfirmText(influencingFilters, nonInfluencingFilters){
     var response='Будет сформирован документ, соответствующий фильтрам: '
     var responseInfluencingFilters=''
-    var nameFilters={'unchecked':'только не просмотренные', 'startInterval':'с ', 'finishInterval':'по ',
+    var nameFilters={'isChecked':'только новые', 'startInterval':'с ', 'finishInterval':'по ',
     'college':'учебное заведение', 'course':'курс',
     'courseDirection':'выбранное направление курсов'}
     for (i = 0;i < Object.keys(influencingFilters).length; i++){
         var key=Object.keys(influencingFilters)[i]
         var value=Object.values(influencingFilters)[i]
-        if (key=='unchecked' & value==true){
+        if (key=='isChecked' & value==true){
             responseInfluencingFilters+='\n* '+nameFilters[key]
         }
         else {
@@ -170,7 +172,12 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
                 if (key.includes('Interval')!=true){
                     responseInfluencingFilters+='- '
                 }
-                responseInfluencingFilters+=value
+                if (key!='courseDirection'){
+                    responseInfluencingFilters+=value
+                }
+                else {
+                    responseInfluencingFilters+=courseDirectionList[Number(value)+1].textContent
+                }
             }   
         }   
     }
@@ -187,11 +194,10 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
     return response
 }
 
-
 function fileName(id, filters) {
     var currentDate = new Date()
     var fName=currentDate.toJSON().substring(0,10) + "_"
-    if (id.includes('/api/UniversityForm')) {
+    if (id.includes('/api/University')) {
         fName +='Корпоративный_университет'
     }
     else {
@@ -209,33 +215,35 @@ function fileName(id, filters) {
             }
         }
     }
-    var nameFilters={'unchecked':'_только_не_просмотренные_раннее', 'startInterval':'_с_', 'finishInterval':'_по_',
+    var nameFilters={'isChecked':'_толькоНовые', 'startInterval':'_с_', 'finishInterval':'_по_',
     'college':'_', 'course':'_курс','courseDirection':'_ВыбранноеНаправлениеКурсов_'}
     for (i = 0;i < Object.values(filters).length; i++){
         var key=Object.keys(filters)[i]
         var value=Object.values(filters)[i]
-        if (value!='' & value!=false ) {
+        if (value!='' & value!=false & value!=-1) {
             fName+=nameFilters[key]
-            if (key!='unchecked'){
+            if (key!='isChecked' & key!='courseDirection'){
                 fName+=value
             }
+            if (key=='courseDirection'){
+                fName+=courseDirectionList[Number(value)+1].textContent
+            }
+
         }
     }
     return fName
 }
 
-async function getFile(serverURL, fName, filters, id) {
+async function sendRequest(serverURL, fName, filters, id) {
     const xhr = new XMLHttpRequest();
     xhr.open('get', serverURL);
+   
     xhr.setRequestHeader('filters', encodeURIComponent(filters) )
     xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
-    xhr.setRequestHeader('downloadTo', encodeURIComponent(id.substring(0,5)))
     xhr.responseType='blob'
-    console.log(filters, fName, id.substring(0,5))
     xhr.onload = function() {
         let responseObj = this.response;
-        console.log('response',typeof responseObj)
-        if (id.includes('local')){
+        if (id.includes('download')){
             downloadAsFile(responseObj, fName)
             alert('Файл успешно скачан!')
         }
@@ -250,9 +258,7 @@ async function getFile(serverURL, fName, filters, id) {
 
 async function downloadAsFile(data, fName) {
     let a = document.createElement("a");
-    console.log(data)
     a.href = URL.createObjectURL(data);
     a.download = fName;
-    a.click();
-    
+    a.click(); 
 }
