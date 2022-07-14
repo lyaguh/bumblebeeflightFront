@@ -6,6 +6,15 @@ var listOfFiles = document.getElementById('listOfFiles')
 var existedFiles = Array.from(fileInput.files)
 var title = document.getElementsByTagName("title")[0].innerHTML
 
+// if (!window.jQuery) {
+// 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
+//   }
+
+
+
+
+
+
 function sendForm() {
 	const urlToBack = 'https://0b9c-178-207-91-7.eu.ngrok.io/api/probation'
 	// prompt('Введите URL до эндпоинта');
@@ -50,6 +59,7 @@ applicationForm.addEventListener('submit', (e) => {
 		alert(`Вы забыли прикрепить следующие файлы: ${forgottenFiles.join(', ')}.`)
 	} else {
 		sendForm();
+		alert('Заявка отправлена')
 		applicationForm.reset();
 		while (listOfFiles.firstChild) {
 			listOfFiles.removeChild(listOfFiles.firstChild);
@@ -183,3 +193,13 @@ Array.prototype.unique = function () {
 
 	return a;
 };
+
+
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 5,
+		language: "ru"
+	});
+});
+
