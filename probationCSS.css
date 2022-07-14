@@ -1,0 +1,105 @@
+/* .back{
+    background: linear-gradient(179.36deg, #FFFFFF -2.12%, rgba(0, 255, 255, 0.6875) 7.99%, #E951DA 20.41%, #6E49FF 47.12%, #13C59A 90.59%, rgba(255, 255, 255, 0) 141.47%);
+} */
+.main_text{
+    text-align: center;
+}
+.card_info{
+    display: flex;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    padding: 25px 89px 60px 38px;
+    line-height: 25px;
+}
+.click_card{
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    max-height: 300px;
+    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    margin: 0px auto;
+}
+
+.img{
+    vertical-align: middle;
+    width: 224px;
+    height: 220px;
+    padding: 1px 2px 0px 39px;
+
+}
+.btn{
+    margin-top: 10px;
+    background: #18B8DB;
+    border-radius: 5px;
+    color: #FFFFFF;
+    line-height: 20px;
+}
+.btn:hover, .btn:active{
+    background: #13C59A;
+}
+
+.ugol{
+    max-width: 600px;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.otbor{
+    text-align: center;
+}
+.krugi{
+    max-width: 600px;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.form_h2{
+    text-align: center;
+
+}
+input{
+    height: 45px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #e9f2ff;
+    border-radius: 5px;
+    padding-left: 25px;
+}
+.form_card{
+    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    max-width: 415px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 38px;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+}
+.form_field{
+    margin-bottom: 13px;
+}
+.batton{
+    display: block;
+    height: 35px;
+    background: #6E49FF;
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.batton:hover{
+    background: #886ef1;
+}

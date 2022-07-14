@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
+    <link rel="stylesheet" href="/bumblebeeflightFront/probationCSS.css">
 </head>
 
 <body>
@@ -279,88 +280,64 @@
 
 
     <!--main part-->
-    <section>
-        <div>
-            Стажировка
-        </div>
-        <div>
+    <div class="back">
+        <section>
+            <div class="main_text">
+                <h1>Стажировка</h1> 
+            </div>
+            <div class="click_card">
+                <div class="card_info">
+                    <div class="text_card">
+                        <div><h2>Оплачиваемая стажировка</h2></div>
+                        <div>Движение вперед - вне границ. С поддержкой наставника внедряй новые IT-сервисы и влияй на будущее банка.</div>
+                        <button class="btn">Подать заявку!</button>
+                    </div>
+                    <div class="img">
+                       <p><img class="img" src="/bumblebeeflightFront/img/free-icon-scoring-1288797 1.png" alt=""></p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
             <div>
-                <div>Оплачиваемая стажировка</div>
-                <div>Движение вперед - вне границ. С поддержкой наставника внедряй новые IT-сервисы и влияй на будущее банка.</div>
-                <div>Подай заявку </div>
+                <img class="ugol" src="/bumblebeeflightFront/img/6-ти угольники.png" alt="">
+            </div>
+        </section>
+        <section>
+            <div class="otbor">
+                <h2>Этапы отбора на стажировку</h2>
             </div>
             <div>
-                Картинка с пальцем и звездами
+               <img class="krugi" src="/bumblebeeflightFront/img/Group 4.png" alt="">
             </div>
-        </div>
-    </section>
-        <div>
-            <div>Прием заявок</div>
-            <div>картинка тетрадки</div>
-            <div>До 6 марта</div>
-        </div>
-        <div>
-            <div>Локация </div>
-            <div>картинка с локацией</div>
-            <div>Казань</div>
-        </div>
-        <div>
-            <div>Условия</div>
-            <div>картинка с песочными часами</div>
-            <div>20-40ч</div>
-        </div>
-        <div>
-            <div>Длительность</div>
-            <div>картинка с календарем</div>
-            <div>От 3-х месяцев</div>
-        </div>
-    <section>
-        <div>
-            Этапы отбора на стажировку
-        </div>
-        <div>
-            <div>
-                <div>Регистрация</div>
-                <div>До 6 марта</div>
-            </div>
-            <div>
-                <div>Скрининг заявок</div>
-                <div>До 16 марта</div>
-            </div>
-            <div>
-                <div>Тел. Интервью</div>
-                <div>До 23 марта</div>
-            </div>
-            <div>
-                <div>Личное интервью</div>
-                <div>До 6 марта</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div id="formLabel">
-            Заполните форму
-        </div>
-        <form id="applicationForm" name="application"  method="post" action="/api/probation">
-            <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
-            <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
-            <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
-            
-            <input type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
-            <input type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
-            <input type="emai" placeholder="Электронная почта" name="email" id="email" required>
+        <section>
+            <div class="form_card">
+                <div class="form_h2" id="formLabel">
+                    <h2>Заполните форму</h2>
+                </div>
+                <form class="form_fields" id="applicationForm" name="application"  method="post" action="">
+                    <input class="form_field" type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
+                    <input class="form_field" type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
+                    <input class="form_field" type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
+                    
+                    <input class="form_field" type="date" placeholder="Дата начала практики" name="startDate" id="startDate" required>
+                    <input class="form_field" type="text" placeholder="Телефон" name="phone" id="phone" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+                    <input class="form_field" type="emai" placeholder="Электронная почта" name="email" id="email" required>
 
-
-
-            <input type="file" accept=".docx,.doc,.pdf" name="uploadfile" id="cv" style="display:none;"/>
-            <label id="labelCv" for="cv">Файл резюме (.docx,.doc,.pdf)</label>
-            
-            <button type="submit">
-                Отправить
-            </button>
-        </form>
-    </section>
+                    <div class="battons"></div>
+                        <input class="batton" type="file" accept=".docx,.doc,.pdf" name="uploadfile" id="cv" style="display:none;"/>
+                        <label id="labelCv" for="cv">Прикрепить резюме(.docx,.doc,.pdf)</label>
+                        
+                        <button class="batton" type="submit">
+                            Отправить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
 
 
 
