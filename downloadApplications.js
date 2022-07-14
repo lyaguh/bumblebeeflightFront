@@ -112,10 +112,18 @@ function readFilters(){
     if (finishInterval.length<10){
         finishInterval=''
     }
-    var college = document.getElementById('college').value
-    var course = document.getElementById('course').value
-    var courseDirection = courseDirectionList.value
-
+    var college =Number(document.getElementById('college').value)
+    if (college==-1){
+        college=null
+    } 
+    var course = Number(document.getElementById('course').value)
+    if (course==-1){
+        course=null
+    } 
+    var courseDirection = Number(courseDirectionList.value)
+    if (courseDirection==-1){
+        courseDirection=null
+    } 
     var filters={'isChecked':isChecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
                  'college':college, 'course':course,'courseDirection':courseDirection}
     return filters
@@ -236,9 +244,17 @@ function fileName(id, filters) {
 
 async function sendRequest(serverURL, fName, filters, id) {
     const xhr = new XMLHttpRequest();
+    
     xhr.open('get', serverURL);
-   
-    xhr.setRequestHeader('filters', encodeURIComponent(filters) )
+    console.log(filters)
+    for (i = 0;i < Object.values(filters).length; i++){
+        var key=Object.keys(filters)[i]
+        var value=Object.values(filters)[i]
+        console.log(key, value)
+        xhr.setRequestHeader(key, encodeURIComponent(value) )
+        
+    }
+    //xhr.setRequestHeader('filters', encodeURIComponent(filters) )
     xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
     xhr.responseType='blob'
     xhr.onload = function() {
