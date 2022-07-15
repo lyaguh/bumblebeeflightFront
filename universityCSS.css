@@ -45,34 +45,33 @@ position: relative;
     margin-bottom: 20px;
 }
 
-.forms_form form .left{
+.forms_form{
+	max-width: 600px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+
+.forms_form form .right, .left{
     padding-left: 10px;
     font-size: 18px;
     height: 60px; 
     width: 500px;
     border-radius: 4px;
-    margin: 10px 10px 30px 0;
     border: 1px solid #c9c9c9;
+	margin-top: 15px
     
 }
 
-.forms_form form .right{
-    padding-left: 10px;
-    font-size: 18px;
-    height: 60px; 
-    width: 500px;
-    border-radius: 4px;
-    margin: 10px 0 30px 10px;
-    border: 1px solid #c9c9c9;
-    
+
+.cnt__btn.phone__w100.a{
+	margin-top: 10px;
 }
 
-@media (max-width: 1260px){
-    .forms_form form .left{
-        margin: 10px 0 30px 0;
-    }
-    
-    .forms_form form .right{
-        margin: 10px 0 30px 0;
-    }
+.text_color_classic{
+	color: #00b2a9;
+}
+
+
 }

@@ -98,3 +98,13 @@
     }
 }
 
+.btn.btn-outline-dark{
+	background-color: #00b2a9;
+	color: white;
+	border: none;
+}
+
+.btn.btn-outline-dark:hover, .btn.btn-outline-dark:active{
+	background-color: aqua;
+}
+
