@@ -361,7 +361,7 @@
             <h2>Заполните форму обратной связи</h2>
             <h3>Если хотите стать участником наших программ</h3>
         </div>
-        <form id="applicationForm" name="application" method="post" action="/api/university">
+        <form id="applicationForm" name="application" method="post" action="\\api/university">
             <input class="left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
@@ -382,7 +382,7 @@
                 <option value=6>6 курс</option>
             </select>
             <select class="right" name="courseDirection" id="courseDirection" required>
-                <option value=-1 disabled selected>Программа обучения</option>
+                <option value='' disabled selected>Программа обучения</option>
                 <option value=0>Welcome тренинг</option>
                 <option value=1>Активные продажи по телефону ЮЛ</option>
                 <option value=2>Повышение финансовой грамотности</option>

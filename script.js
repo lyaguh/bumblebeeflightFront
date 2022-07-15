@@ -28,34 +28,36 @@ $(document).ready(function() {
 
 
 const applicationForm = document.forms.application;
-var fileInput = document.querySelector('input[type="file"]')
-var dropZone = document.getElementById('applicationForm');
-var maxFileSize = 4000000;
-var listOfFiles = document.getElementById('listOfFiles')
-var existedFiles = Array.from(fileInput.files)
+
 var title = document.getElementsByTagName("title")[0].innerHTML
 
+if (title == 'Стажировка' ||title=='Старт карьеры') {
+	var fileInput = document.querySelector('input[type="file"]')
+	var dropZone = document.getElementById('applicationForm');
+	var maxFileSize = 3000000;
+	var listOfFiles = document.getElementById('listOfFiles')
+	var existedFiles = []
+}
 
-
-	console.log('https://917c-178-204-72-23.eu.ngrok.io'+applicationForm.action.slice(6))
-
-
+console.log('https://29ba-178-207-91-7.eu.ngrok.io'+applicationForm.action.slice(6))
 function sendForm() {
-	const urlToBack = 'https://917c-178-204-72-23.eu.ngrok.io'
-
+	const urlToBack = 'https://08d6-178-207-91-7.eu.ngrok.io'
 	// prompt('Введите URL до эндпоинта');
+	
 	const xhr = new XMLHttpRequest();
 	xhr.open('POST', urlToBack + applicationForm.action.slice(6));
 
 	// xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 	xhr.onload = () => {
 		if (xhr.status == 200) {
-			document.getElementById('formLabel').innerText = `Cработало)`;
+			//document.getElementById('formLabel').innerText = `Cработало)`;
+			alert('Заявка отправлена')
 		}
 	}
 	xhr.onerror = () => {
 		if (xhr.status >= 300) {
-			document.getElementById('formLabel').innerText = `Не сработало(${xhr.status}`
+			//document.getElementById('formLabel').innerText = `Не сработало(${xhr.status}`
+			alert('Произошла ошибка!')
 		}
 	}
 
@@ -67,7 +69,10 @@ function sendForm() {
 // при отправке формы
 applicationForm.addEventListener('submit', (e) => {
 	e.preventDefault();
-	if (fileInput.files.length < 5) {
+	if (title == 'Стажировка' ||title=='Старт карьеры') {
+		if(fileInput.files.length < 5){
+
+		
 		var forgottenFiles = []
 		for (var forgottenFile of nameOfFile) {
 			var checkingName = false
@@ -83,52 +88,69 @@ applicationForm.addEventListener('submit', (e) => {
 		}
 
 		alert(`Вы забыли прикрепить следующие файлы: ${forgottenFiles.join(', ')}.`)
+
+	}
+		else{
+			sendForm();
+			applicationForm.reset();
+			existedFiles=[]
+			while (listOfFiles.firstChild) {
+				listOfFiles.removeChild(listOfFiles.firstChild);
+			}
+		}
+		
+	
 	} else {
 		sendForm();
-		alert('Заявка отправлена')
-		applicationForm.reset();
-		while (listOfFiles.firstChild) {
-			listOfFiles.removeChild(listOfFiles.firstChild);
-		}
+		applicationForm.reset();		
 	}
 
 
 });
 
 
-// Прикрепление файлов
 
-fileInput.onchange = function () {
-	if (this.value) {
-		attachingFiles(this.files)
-	} else {
-		document.getElementById('labelCv').innerHTML = 'Или выберите их здесь'
+
+if (title == 'Стажировка' ||title=='Старт карьеры') {
+		// Прикрепление файлов
+
+	fileInput.onchange = function () {
+		if (this.value) {
+			attachingFiles(this.files)
+		} else {
+			document.getElementById('labelCv').innerHTML = 'Или выберите их здесь'
+		}
 	}
+
+	if (typeof (window.FileReader) == 'undefined') {
+		dropZone.text('Не поддерживается браузером!');
+		dropZone.addClass('error');
+	}
+		dropZone.ondragover = function (e) {
+		dropZone.classList.add('hover');
+		return false;
+	};
+
+	dropZone.ondragleave = function () {
+		dropZone.classList.remove('hover');
+		return false;
+	};
+
+
+	dropZone.ondrop = function (event) {
+		event.preventDefault();
+		dropZone.classList.remove('hover');
+		dropZone.classList.add('drop');
+		attachingFiles(event.dataTransfer.files)
+
+	};
+	if (title == 'Стажировка') 
+		{var nameOfFile = ['ИНН', 'Паспорт', 'СНИЛС', 'Анкета', 'Резюме']}
+	else
+		{var nameOfFile = ['ИНН', 'Паспорт', 'СНИЛС', 'Анкета', 'Соглашение']}
+
 }
 
-if (typeof (window.FileReader) == 'undefined') {
-	dropZone.text('Не поддерживается браузером!');
-	dropZone.addClass('error');
-}
-
-dropZone.ondragover = function (e) {
-	dropZone.classList.add('hover');
-	return false;
-};
-
-dropZone.ondragleave = function () {
-	dropZone.classList.remove('hover');
-	return false;
-};
-
-
-dropZone.ondrop = function (event) {
-	event.preventDefault();
-	dropZone.classList.remove('hover');
-	dropZone.classList.add('drop');
-	attachingFiles(event.dataTransfer.files)
-
-};
 
 function attachingFiles(attachedFilesDT) {
 	var attachedFiles = Array.from(attachedFilesDT);
@@ -146,8 +168,8 @@ function attachingFiles(attachedFilesDT) {
 			correctAttachedFiles.push(attachedFiles[i])
 		} else {
 			if (attachedFiles[i].size > maxFileSize) {
-				dropZone.innerText = ('Файл ' + attachedFiles[i].name + ' слишком большой!');
-				dropZone.classList.add('error');
+				alert('Файл ' + attachedFiles[i].name + ' слишком большой!');
+				//dropZone.classList.add('error');
 				return false;
 			}
 		}
@@ -191,10 +213,6 @@ function attachingFiles(attachedFilesDT) {
 	existedFiles = Array.from(fileInput.files)
 }
 
-if (title == 'Стажировка') 
-	{var nameOfFile = ['ИНН', 'Паспорт', 'СНИЛС', 'Анкета', 'Резюме']}
-else
-	{var nameOfFile = ['ИНН', 'Паспорт', 'СНИЛС', 'Анкета', 'Соглашение']}
 
 Array.prototype.unique = function () {
 	var a = this.concat();
