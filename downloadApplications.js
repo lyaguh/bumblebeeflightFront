@@ -1,4 +1,4 @@
-let serverURL='https://25db-178-204-72-23.eu.ngrok.io'
+let serverURL='https://08d6-178-207-91-7.eu.ngrok.io'
 const downloadbtns=document.getElementsByName('downloadbtn')
 
 const isCheckedFilter=document.getElementById('uncheckedFilter')
@@ -82,7 +82,7 @@ function readFilters(){
     var isChecked=isCheckedChoice.checked
 
     var startInterval=''
-    var finishInterval=''  
+    var finishInterval='' 
     for(i = 0;i < dateFormatList.length; i++)
     {
         if (dateFormat[i].getElementsByTagName('input')[0].checked==true){
@@ -112,10 +112,7 @@ function readFilters(){
     if (finishInterval.length<10){
         finishInterval=''
     }
-    var college =Number(document.getElementById('college').value)
-    if (college==-1){
-        college=null
-    } 
+    var college =document.getElementById('college').value
     var course = Number(document.getElementById('course').value)
     if (course==-1){
         course=null
@@ -126,6 +123,7 @@ function readFilters(){
     } 
     var filters={'isChecked':isChecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
                  'college':college, 'course':course,'courseDirection':courseDirection}
+    console.log('filters',filters)
     return filters
 }
 
@@ -137,24 +135,24 @@ function influenceFilters(filters, category){
             influencingFilters['college']=''
             nonInfluencingFilters.push("учебное заведение")
         }
-        if (influencingFilters['course']!=-1){
-            influencingFilters['course']=-1
+        if (influencingFilters['course']!=null){
+            influencingFilters['course']=null
             nonInfluencingFilters.push("курс")
         }
-        if (influencingFilters['courseDirection']!=-1){
-            influencingFilters['courseDirection']=-1
+        if (influencingFilters['courseDirection']!=null){
+            influencingFilters['courseDirection']=null
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
     if (category.includes('Practice')){
-        if (influencingFilters['courseDirection']!=-1){
-            influencingFilters['courseDirection']=-1
+        if (influencingFilters['courseDirection']!=null){
+            influencingFilters['courseDirection']=null
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
     if (category.includes('Grant')){
-        if (influencingFilters['courseDirection']!=-1){
-            influencingFilters['courseDirection']=-1
+        if (influencingFilters['courseDirection']!=null){
+            influencingFilters['courseDirection']=null
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
     }
@@ -175,7 +173,7 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
             responseInfluencingFilters+='\n* '+nameFilters[key]
         }
         else {
-            if (value!='' & value!=-1){
+            if (value!=null & value!=''){
                 responseInfluencingFilters+='\n* '+ nameFilters[key] + ' '
                 if (key.includes('Interval')!=true){
                     responseInfluencingFilters+='- '
@@ -228,7 +226,7 @@ function fileName(id, filters) {
     for (i = 0;i < Object.values(filters).length; i++){
         var key=Object.keys(filters)[i]
         var value=Object.values(filters)[i]
-        if (value!='' & value!=false & value!=-1) {
+        if (value!=null & value!=false) {
             fName+=nameFilters[key]
             if (key!='isChecked' & key!='courseDirection'){
                 fName+=value
@@ -254,7 +252,6 @@ async function sendRequest(serverURL, fName, filters, id) {
         xhr.setRequestHeader(key, encodeURIComponent(value) )
         
     }
-    //xhr.setRequestHeader('filters', encodeURIComponent(filters) )
     xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
     xhr.responseType='blob'
     xhr.onload = function() {

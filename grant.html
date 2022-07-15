@@ -440,7 +440,7 @@
                     <!---->
 
         </div>
-        <form id="applicationForm" name="application" method="post" action="/api/grant">
+        <form id="applicationForm" name="application" method="post" action="\\api/grant">
             <input class="input_app left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="input_app right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="input_app left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">            
@@ -470,8 +470,8 @@
                         pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
                     <input class="input_app right" type="text" name="OtherGrants"
                         placeholder="Есть ли другие стипендии, и какие*" required>
-                    <input class="input_app left" type="text" name="EducationForm" placeholder="Форма обучения*"
-                        requiredpattern="[А-Яа-яЁё]{1,}">
+                    <input class="input_app left" type="number" name="EducationForm" placeholder="Форма обучения*"
+                        required>
                     <input class="input_app right" type="number" step="0.01" name="AverageMarks"
                         placeholder="Средний балл за год*" required>
 
