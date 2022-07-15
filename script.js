@@ -10,8 +10,8 @@ $(document).ready(function() {
 		language: "ru"
 	});
     $('#college').select2({
-		dropdownCssClass : 'bigdrop',
-		containerCssClass: 'bigselect',
+		// dropdownCssClass : 'bigdrop',
+		// containerCssClass: 'bigselect',
         ajax: {
           url: urlToBack+'/api/College',
           processResults: function (data) {

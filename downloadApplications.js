@@ -10,6 +10,7 @@ $(document).ready(function() {
 		language: "ru"
 	});
     $('#college').select2({
+        
         ajax: {
           url: serverURL+'/api/College',
           processResults: function (data) {
