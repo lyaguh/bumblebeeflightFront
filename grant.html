@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Стипендия</title>
+    <script defer src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
     <link rel="stylesheet" href="grantCSS.css">
@@ -443,51 +448,62 @@
         <form id="applicationForm" name="application" method="post" action="\\api/grant">
             <input class="input_app left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="input_app right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="input_app left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">            
-            <input class="input_app right" type="date" name="BirthDate" placeholder="Дата рождения*" required >
+            <input class="input_app left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}"> 
+            <input class="input_app right" type="text" name="BirthDate"  required id="startDate" placeholder="Дата рождения*" onfocus="(this.type='date')" onblur="(this.type='text')">           
+            
 
                     <select class="input_app left wd" name="EducationLevel" id="EducationLevel">
                         <option value="" disabled selected>Уровень образования</option>
-                        <option value="1">Колледж/Техникум</option>
-                        <option value="2">Бакалавриат</option>
-                        <option value="3">Специалитет</option>
-                        <option value="4">Магистратура</option>
+                        <option value=0>Колледж/Техникум</option>
+                        <option value=1>Бакалавриат</option>
+                        <option value=2>Специалитет</option>
+                        <option value=3>Магистратура</option>
 
                     </select>
-                    <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required>
+                    <select class="input_app right wd" required name="college" id="college">
+                        <option value="" selected disabled>Место учебы</option>
+                        </select>
+                    
 
                     <select class="input_app left wd" name="course" id="course" required>
                         <option value="" disabled selected>Курс</option>
-                        <option value="1">1 курс</option>
-                        <option value="2">2 курс</option>
-                        <option value="3">3 курс</option>
-                        <option value="4">4 курс</option>
-                        <option value="5">5 курс</option>
-                        <option value="6">6 курс</option>
+                        <option value=1>1 курс</option>
+                        <option value=2>2 курс</option>
+                        <option value=3>3 курс</option>
+                        <option value=4>4 курс</option>
+                        <option value=5>5 курс</option>
+                        <option value=6>6 курс</option>
                     </select>
                     <input class="input_app right" type="email" name="Email" placeholder="Email*" required>
                     <input class="input_app left" type="text" name="Phone" placeholder="Телефон*" required
                         pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
                     <input class="input_app right" type="text" name="OtherGrants"
                         placeholder="Есть ли другие стипендии, и какие*" required>
-                    <input class="input_app left" type="number" name="EducationForm" placeholder="Форма обучения*"
-                        required>
+
+
+                    
+                    <select class="input_app left" name="EducationForm" id="EducationForm" required>
+                        <option value="" disabled selected>Форма обучения</option>
+                        <option value=0 >Очная</option>
+                        <option value=1 >Заочная</option>
+                        <option value=2 >Очно-заочная</option>
+                    </select>
+
                     <input class="input_app right" type="number" step="0.01" name="AverageMarks"
-                        placeholder="Средний балл за год*" required>
+                        placeholder="Средний балл за год*" required max='5'>
 
                     <select class="input_app wd" name="speciality" id="speciality" required>
                         <option value="" disabled selected>Направление обучения</option>
-                        <option value="экономика">экономика</option>
-                        <option value="банковское дело">банковское дело</option>
-                        <option value="кредиты и финансы">кредиты и финансы</option>
-                        <option value="рынок ценных бумаг">рынок ценных бумаг</option>
-                        <option value="информационные технологии">информационные технологии</option>
-                        <option value="бизнес-информатика">бизнес-информатика</option>
-                        <option value="бизнес-аналитика">бизнес-аналитика</option>
-                        <option value="финансовый менеджмент">финансовый менеджмент</option>
-                        <option value="информационная безопасность">информационная безопасность</option>
-                        <option value="математическое моделирование (прикладная математика)">математическое
-                            моделирование (прикладная математика)</option>
+                        <option value=0>экономика</option>
+                        <option value=1>банковское дело</option>
+                        <option value=2>кредиты и финансы</option>
+                        <option value=3>рынок ценных бумаг</option>
+                        <option value=4>информационные технологии</option>
+                        <option value=5>бизнес-информатика</option>
+                        <option value=6>бизнес-аналитика</option>
+                        <option value=7>финансовый менеджмент</option>
+                        <option value=8>информационная безопасность</option>
+                        <option value=9>математическое моделирование (прикладная математика)</option>
                     </select>
                     <div class="flex-auto relative">
                         <!---->
@@ -1088,6 +1104,5 @@
     <img src="./img/w0kcCuCiO7c.png" alt="Полет шмеля" title="Полет шмеля" style="width:10px;height:10px;">
 </body>
 
-<script src="script.js"></script>
 
 </html>
