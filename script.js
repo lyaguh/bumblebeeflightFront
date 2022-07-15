@@ -1,3 +1,32 @@
+
+if (!window.jQuery) {
+	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
+  }
+const urlToBack = 'https://08d6-178-207-91-7.eu.ngrok.io'
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 2,
+		language: "ru"
+	});
+    $('#college').select2({
+		dropdownCssClass : 'bigdrop',
+		containerCssClass: 'bigselect',
+        ajax: {
+          url: urlToBack+'/api/College',
+          processResults: function (data) {
+            return {
+				tags:true,
+              results: data
+            };
+          }
+        }
+      });
+});
+
+
+
+
 const applicationForm = document.forms.application;
 
 var title = document.getElementsByTagName("title")[0].innerHTML
@@ -9,14 +38,15 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	var listOfFiles = document.getElementById('listOfFiles')
 	var existedFiles = []
 }
-
-console.log('https://29ba-178-207-91-7.eu.ngrok.io'+applicationForm.action.slice(6))
+var urlToEndpoint = applicationForm.action.indexOf('api')
+//alert('https://08d6-178-207-91-7.eu.ngrok.io'+applicationForm.action.slice(urlToEndpoint-1))
 function sendForm() {
-	const urlToBack = 'https://08d6-178-207-91-7.eu.ngrok.io'
 	// prompt('Введите URL до эндпоинта');
 	
 	const xhr = new XMLHttpRequest();
-	xhr.open('POST', urlToBack +applicationForm.action.slice(6));
+	var urlToEndpoint = applicationForm.action.indexOf('api')
+
+	xhr.open('POST', urlToBack + applicationForm.action.slice(urlToEndpoint-1));
 
 	// xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 	xhr.onload = () => {
@@ -208,3 +238,13 @@ Array.prototype.unique = function () {
 
 	return a;
 };
+
+
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 5,
+		language: "ru"
+	});
+});
+

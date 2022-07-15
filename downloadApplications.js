@@ -1,9 +1,34 @@
 let serverURL='https://08d6-178-207-91-7.eu.ngrok.io'
+if (!window.jQuery) {
+	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
+  }
+
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 2,
+		language: "ru"
+	});
+    $('#college').select2({
+        ajax: {
+          url: serverURL+'/api/College',
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          }
+        }
+      });
+});
+
+
+
 const downloadbtns=document.getElementsByName('downloadbtn')
 
-const isCheckedFilter=document.getElementById('uncheckedFilter')
+const isCheckedFilter=document.getElementById('uncheckedFilter').getElementsByTagName('span')[0]
 const isCheckedChoice=document.getElementById('uncheckedChoice')
-isCheckedFilter.addEventListener('click', ()=>{
+isCheckedFilter.addEventListener('click', (e)=>{
+    console.log(e.currentTarget)
     if (isCheckedChoice.checked==true)
     {
         isCheckedChoice.checked=false
@@ -275,3 +300,4 @@ async function downloadAsFile(data, fName) {
     a.download = fName;
     a.click(); 
 }
+

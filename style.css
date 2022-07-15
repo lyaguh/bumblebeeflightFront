@@ -1243,3 +1243,19 @@ main section{
     font-weight:600;
     cursor: pointer;
 }
+
+#college {
+    padding:6px;
+    height: 100px;
+    width: 148px; 
+    font-size: 1.2em;  
+    position: relative;
+}
+
+.bigdrop {
+    width: 500px !important;
+}
+
+.bigselect {
+    width: 500px !important;
+}
