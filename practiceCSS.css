@@ -1,0 +1,122 @@
+h1{
+    text-align: center;
+}
+.info__card{
+    margin-top: 50px;
+    font-size: 32px;
+    line-height: 35px;
+    vertical-align: middle;
+}
+.card_main{
+    font-size: 32px;
+    display: flex;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    padding: 25px 89px 60px 38px;
+    line-height: 25px;
+}
+.card_click{
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    max-height: 400px;
+    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    margin: 0px auto;
+}
+.image img{
+    vertical-align: middle;
+    width: 400px;
+    height: 400px;
+    padding: px px px px;
+    margin: px 10px px 40px;
+    margin-right: -125px;
+    /* float: right;
+    width: 35%;
+    position: relative; */
+
+}
+.btn{
+    margin-top: 10px;
+    background: #18B8DB;
+    border-radius: 5px;
+    color: #FFFFFF;
+    line-height: 20px;
+}
+.btn:hover, .btn:active{
+    background: #13C59A;
+}
+
+h2{
+    text-align: center;
+}
+.gr img{
+    max-width: 1000px;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+.if img{
+    max-width: 1000px;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto; 
+}
+input{
+    height: 45px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #e9f2ff;
+    border-radius: 5px;
+    padding-left: 25px;
+}
+.form_card{
+    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    max-width: 1000px;
+    padding-left: 30px;
+    padding-right: 60px;
+    padding-top: 15px;
+    padding-bottom: 38px;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+}
+.form_field{
+    margin-bottom: 13px;
+}
+.btn{
+    display: block;
+    height: 35px;
+    background: #6E49FF;
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.btn:hover{
+    background: #0db657;
+}
+select#course{
+    height: 45px;
+    width: 1031px;
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #e9f2ff;
+    border-radius: 5px;
+    padding-left: 25px;
+    color: #929394;
+}
+.mybut{
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+}

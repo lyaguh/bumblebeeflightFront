@@ -8,6 +8,7 @@
     <title>Стажировка</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
+    <link rel="stylesheet" href="probationCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
 </head>
 
@@ -279,71 +280,42 @@
 
 
     <!--main part-->
-    <section>
-        <div>
-            Стажировка
-        </div>
-        <div>
+       <div class="main_cont">
+        <section>
+            <div class="click_card">
+                <div class="card_info">
+                    <div class="text_card">
+                        <div><h2>Оплачиваемая стажировка</h2></div>
+                        <div>Движение вперед - вне границ. С поддержкой наставника внедряй новые IT-сервисы и влияй на будущее банка.</div>
+                        <a href="#top">
+                        <button class="btn">Подать заявку!</button>
+                        </a>
+                    </div>
+                    <div class="img">
+                       <p><img class="img" src="img/free-icon-scoring-1288797 1.png" alt=""></p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
             <div>
-                <div>Оплачиваемая стажировка</div>
-                <div>Движение вперед - вне границ. С поддержкой наставника внедряй новые IT-сервисы и влияй на будущее банка.</div>
-                <div>Подай заявку </div>
+                <img class="ugol" src="img/6-ти угольники.png" alt="">
+            </div>
+        </section>
+        <section>
+            <div class="otbor">
+                <h2>Этапы отбора на стажировку</h2>
             </div>
             <div>
-                Картинка с пальцем и звездами
+               <img class="krugi" src="img/Group 4.png" alt="">
             </div>
-        </div>
-    </section>
-        <div>
-            <div>Прием заявок</div>
-            <div>картинка тетрадки</div>
-            <div>До 6 марта</div>
-        </div>
-        <div>
-            <div>Локация </div>
-            <div>картинка с локацией</div>
-            <div>Казань</div>
-        </div>
-        <div>
-            <div>Условия</div>
-            <div>картинка с песочными часами</div>
-            <div>20-40ч</div>
-        </div>
-        <div>
-            <div>Длительность</div>
-            <div>картинка с календарем</div>
-            <div>От 3-х месяцев</div>
-        </div>
-    <section>
-        <div>
-            Этапы отбора на стажировку
-        </div>
-        <div>
-            <div>
-                <div>Регистрация</div>
-                <div>До 6 марта</div>
-            </div>
-            <div>
-                <div>Скрининг заявок</div>
-                <div>До 16 марта</div>
-            </div>
-            <div>
-                <div>Тел. Интервью</div>
-                <div>До 23 марта</div>
-            </div>
-            <div>
-                <div>Личное интервью</div>
-                <div>До 6 марта</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <section id="stepsToWriteIn">
-        <div>Как подать заявку?</div>
-        <div>Скачай и заполни <a style="text-decoration:none; font-weight: 500; color: black;" href="/documents/Анкета ПАО Ак Барс Банк.doc" download="">анкету</a></div>
-        <div>Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и резюме в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
-        <div>Заполни форму</div>
-        <div>Profit</div>
+        <div class="stepsToWriteIn">Как подать заявку?</div>
+        <div>1. Скачай и заполни <a style="text-decoration:none; font-weight: 500; color: black;" href="/documents/Анкета ПАО Ак Барс Банк.doc" download="">анкету</a></div>
+        <div>2. Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и резюме в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
+        <div id="top">3. Заполни форму</div>
     </section>
 
     <section id="formDropZone" class="forms_form mn">
@@ -363,19 +335,19 @@
 
 
             <input type="file" multiple accept=".docx,.doc,.pdf" name="files" id="files" style="display:none;"/>
-            <div id="sdropZone"><label id="labelCv" for="files">Выберите файлы</label> или перетащите их сюда</div>
+            <div id="sdropZone" class="dropezone"><label id="labelCv" for="files">Выберите файлы</label> или перетащите их сюда</div>
             
             <ul id="listOfFiles">
                 
             </ul>
-            <button type="submit">
+            <button type="submit" class="btn">
                 Отправить
             </button>
         </form>
     </div>
     </section>
 
-
+</div>
 
 
     <!--footer-->
