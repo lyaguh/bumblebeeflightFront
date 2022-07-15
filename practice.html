@@ -8,6 +8,7 @@
     <title>Старт карьеры</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
+    <link rel="stylesheet" href="practiceCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
 </head>
 
@@ -280,49 +281,42 @@
     <!--main part-->
     <main>
         <section id="practicePageLabel">
-            <div id="practiceTitle">Старт карьеры</div>
-            <div id="practiceBars">
-                <div>
-                    <div>Удачный старт</div>
-                    <div>Начни карьеру в нашей команде</div>
-                    <div>Оставить заявку</div>
+            <div class="card_click" id="practiceBars">
+                <div class="card_main">
+                    <div class="info__card">
+                        <div class="info_card"><p>Удачный старт</p></div>
+                        <div class="info_card"><p>Начни карьеру в нашей команде</p></div>
+                        <div class="btn"><a href="#top"><button class="mybut">Оставить заявку</button></a></div>
+                    </div>
+                    <div class="image"><img src="img/bars.png" alt=""></div>
                 </div>
-                <div>Картинка с барсом</div>
             </div>
         </section>
 
         <section id="practicePagePossabilities">
-            <div>Перспективы в нашей компании</div>
-            <div>
-                <div></div>
-                <div>Карьерный рост</div>
-            </div>
-            <div>
-                <div></div>
-                <div>Саморазвитие</div>
-            </div>
-            <div>
-                <div></div>
-                <div>Хорошая заработная плата</div>
-            </div>
+            <div><h2>Перспективы в нашей компании</h2></div>
+           <div class="gr">
+            <img src="img/Group 5.png" alt="">
+           </div>
         </section>
 
         <section id="practiceCircumstances">
-            <div>Условия</div>
-            <div>Заполни заявку на прохождение практики</div>
-            <div>Пройди процедуру отбора. Покажи себя!</div>
-            <div>Получи приглашение на практику</div>
+            <div><h2>Условия</h2></div>
+            <div class="if">
+                <img src="img/%D0%94%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.png" alt="">
+            </div>
         </section>
 
         <section id="stepsToWriteIn">
-            <div>Как подать заявку?</div>
-            <div>Скачай и заполни <a href="/documents/Анкета_ПАО_Ак_Барс_Банк_для_студентов.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">анкету</a> и <a href="/documents/Соглашение_о_конфиденциальности1.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">соглашение о конфиденциальности</a></div>
-            <div>Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и соглашения в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
-            <div>Заполни форму</div>
-            <div>Profit</div>
+            <div class="stepsToWriteIn">Как подать заявку?</div>
+            <div class="border">
+            <div>1. Скачай и заполни <a href="/documents/Анкета_ПАО_Ак_Барс_Банк_для_студентов.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">анкету</a> и <a href="/documents/Соглашение_о_конфиденциальности1.doc" style="text-decoration:none; font-weight: 500; color: black;" download="">соглашение о конфиденциальности</a></div>
+            <div>2. Прикрепи сканы паспорта, ИНН, СНИЛСа, анкеты и соглашения в следующих форматах: pdf,doc,docx (в названии документа должны присутствовать эти слова )</div>
+            <div id="top">3. Заполни форму</div>
+            </div>
         </section>
 
-        <section id="practiceFormArea">
+        <section id="practiceFormArea" class='forms_form'>
             <div id="formLabel">
                 Заполните форму
             </div>
@@ -340,7 +334,7 @@
                 <ul id="listOfFiles">
                     
                 </ul>
-                <button type="submit">
+                <button type="submit" class="batton">
                     Отправить
                 </button>
             </form>
