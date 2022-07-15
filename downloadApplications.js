@@ -29,7 +29,6 @@ const downloadbtns=document.getElementsByName('downloadbtn')
 const isCheckedFilter=document.getElementById('uncheckedFilter').getElementsByTagName('span')[0]
 const isCheckedChoice=document.getElementById('uncheckedChoice')
 isCheckedFilter.addEventListener('click', (e)=>{
-    console.log(e.currentTarget)
     if (isCheckedChoice.checked==true)
     {
         isCheckedChoice.checked=false
@@ -149,7 +148,6 @@ function readFilters(){
     } 
     var filters={'isChecked':isChecked, 'startInterval':startInterval, 'finishInterval':finishInterval,
                  'college':college, 'course':course,'courseDirection':courseDirection}
-    console.log('filters',filters)
     return filters
 }
 
@@ -270,11 +268,9 @@ async function sendRequest(serverURL, fName, filters, id) {
     const xhr = new XMLHttpRequest();
     
     xhr.open('get', serverURL);
-    console.log(filters)
     for (i = 0;i < Object.values(filters).length; i++){
         var key=Object.keys(filters)[i]
         var value=Object.values(filters)[i]
-        console.log(key, value)
         xhr.setRequestHeader(key, encodeURIComponent(value) )
         
     }

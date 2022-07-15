@@ -5,18 +5,19 @@ if (!window.jQuery) {
 const urlToBack = 'https://08d6-178-207-91-7.eu.ngrok.io'
 $(document).ready(function() {
 	$('#courseDirection').select2({
+
 		placeholder: "Направление учебных курсов",
 		maximumSelectionLength: 2,
 		language: "ru"
 	});
     $('#college').select2({
+		tags:true,
 		// dropdownCssClass : 'bigdrop',
 		// containerCssClass: 'bigselect',
         ajax: {
           url: urlToBack+'/api/College',
           processResults: function (data) {
             return {
-				tags:true,
               results: data
             };
           }
@@ -39,25 +40,18 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	var existedFiles = []
 }
 var urlToEndpoint = applicationForm.action.indexOf('api')
-//alert('https://08d6-178-207-91-7.eu.ngrok.io'+applicationForm.action.slice(urlToEndpoint-1))
-function sendForm() {
-	// prompt('Введите URL до эндпоинта');
-	
+function sendForm() {	
 	const xhr = new XMLHttpRequest();
 	var urlToEndpoint = applicationForm.action.indexOf('api')
 
 	xhr.open('POST', urlToBack + applicationForm.action.slice(urlToEndpoint-1));
-
-	// xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 	xhr.onload = () => {
 		if (xhr.status == 200) {
-			//document.getElementById('formLabel').innerText = `Cработало)`;
 			alert('Заявка отправлена')
 		}
 	}
 	xhr.onerror = () => {
 		if (xhr.status >= 300) {
-			//document.getElementById('formLabel').innerText = `Не сработало(${xhr.status}`
 			alert('Произошла ошибка!')
 		}
 	}
