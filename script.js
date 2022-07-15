@@ -1,25 +1,51 @@
+
+if (!window.jQuery) {
+	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
+  }
+
+$(document).ready(function() {
+	$('#courseDirection').select2({
+		placeholder: "Направление учебных курсов",
+		maximumSelectionLength: 2,
+		language: "ru"
+	});
+    $('#college').select2({
+		dropdownCssClass : 'bigdrop',
+		containerCssClass: 'bigselect',
+        ajax: {
+          url: 'https://08d6-178-207-91-7.eu.ngrok.io/api/College',
+          processResults: function (data) {
+            return {
+				tags:true,
+              results: data
+            };
+          }
+        }
+      });
+});
+
+
+
+
 const applicationForm = document.forms.application;
 var fileInput = document.querySelector('input[type="file"]')
 var dropZone = document.getElementById('applicationForm');
-var maxFileSize = 3000000;
+var maxFileSize = 4000000;
 var listOfFiles = document.getElementById('listOfFiles')
 var existedFiles = Array.from(fileInput.files)
 var title = document.getElementsByTagName("title")[0].innerHTML
 
-// if (!window.jQuery) {
-// 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
-//   }
 
 
-
-
+	console.log('https://917c-178-204-72-23.eu.ngrok.io'+applicationForm.action.slice(6))
 
 
 function sendForm() {
-	const urlToBack = 'https://0b9c-178-207-91-7.eu.ngrok.io/api/probation'
+	const urlToBack = 'https://917c-178-204-72-23.eu.ngrok.io'
+
 	// prompt('Введите URL до эндпоинта');
 	const xhr = new XMLHttpRequest();
-	xhr.open('POST', urlToBack + applicationForm.action);
+	xhr.open('POST', urlToBack + applicationForm.action.slice(6));
 
 	// xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 	xhr.onload = () => {

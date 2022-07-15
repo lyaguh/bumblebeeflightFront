@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Старт карьеры</title>
+    <script defer src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
@@ -327,7 +332,7 @@
                 Заполните форму
             </div>
             <div id="dropZone">
-            <form id="applicationForm" name="application"  method="post" action="/api/practice">
+            <form id="applicationForm" name="application"  method="post" action="\\api/practice">
                 <input type="text" placeholder="Фамилия" name="secondname" id="secondname" autofocus required pattern="[А-Яа-яЁё]{1,}">
                 <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
                 <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
@@ -957,6 +962,6 @@
 </body>
 
 
-<script src="script.js"></script>
+
 
 </html>
