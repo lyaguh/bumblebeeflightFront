@@ -313,42 +313,55 @@
             </div>
         </div>
         <div class="main_content">
-            <section>
+            <section>                
+                <div class="block_content a">
+                <img src="img/20943892.jpg" alt="">
+                <br/>
+                <br/>
                 <h2 class="font_fame">Цель программы</h2>
-                <p>Стипендии Банка учреждаются в целях поддержки, поощрения и привлечения на постоянную работу в Банк
+                <div>Стипендии Банка учреждаются в целях поддержки, поощрения и привлечения на постоянную работу в Банк
                     наиболее
                     талантливых студентов и выпускников высших и средних учебных заведений Республики Татарстан и других
-                    субъектов Российской Федерации.</p>
+                    субъектов Российской Федерации.</div>
+                </div>
             </section>
             <section>
+               <div class="block_content b">
+                    <img src="img/11060.jpg" alt="storyset" align="left">
+           
                 <h2 class="font_fame">О программе</h2>
                 <div>
-                    <h3 class="font_fame">Для кого предназначена?</h3>
-                    <hr>
+                    <h3 class="font_fame">Для кого предназначена?</h3>                    
                     <p>Стипендии присуждаются студентам дневного отделения образовательных учреждений высшего и среднего
                         профессионального образования за значительные достижения в учебной деятельности, успехи в
                         научных
                         исследованиях и внеучебной деятельности, прошедшим специализированный отбор.</p>
+                  
+                   	</div>
                 </div>
-                <div>
+                <div class="block_content c">
+                   <img src="img/3235815.jpg" alt="storyset">
+                   <br/>
+					<br/>
                     <h2 class="font_fame">Как и на какой срок назначается стипендия?</h2>
-                    <hr>
+                    
                     <p>Получатель Стипендии определяется на конкурсной основе.
                         Стипендия назначается Стипендиату на один учебный год (с 1 сентября года проведения конкурса на
                         получение Стипендии до 30 июня следующего года).</p>
                 </div>
-                <div>
+                <div class="block_content d">
+                   <img src="img/6573.jpg" alt="">
+                   <br/><br/>
                     <h2>Количество и размер стипендий</h2>
-                    <hr>
+                    
                     <p>Количество и размер стипендий.
                         Учреждаются не более 20 именных ежемесячных стипендий в следующих размерах:
                         - для студентов средних учебных заведений 10 стипендий в размере 2500 рублей каждая;
                         - для студентов высших учебных заведений 10 стипендий в размере 5000 рублей каждая.
                     </p>
                 </div>
-                <div>
+                <div class="block_content e">
                     <h2 class="font_fame">Условия выдвижения стипендиата</h2>
-                    <hr>
                     <p>Соискателями Стипендий могут быть студенты дневного отделения высших и средних учебных заведений,
                         имеющих
                         государственную аккредитацию, начиная с третьего года обучения, имеющие по итогам четырёх
@@ -356,6 +369,7 @@
                         семестров средние оценки не ниже 4,5 баллов, специализирующиеся по следующим направлениям:
                     </p>
                     <ul class="list_li">
+                       	<img src="img/Checklist.jpg" alt="">
                         <li>банковское дело;</li>
                         <li>экономика;</li>
                         <li>кредиты и финансы;</li>
@@ -381,12 +395,14 @@
                         </div>
                         <p>Заполни анкету и
                             собери нужные документы </p>
+                        <img src="img/2920019.jpg" alt="" style="max-width: 200px;">
                     </div>
-                    <div class="textcols-item">
+                    <div class="textcols-item midl">
                         <div class="font_fame">
                             <b>№2</b>
                         </div>
                         <p>Покажи свои навыки и успехи в учебе</p>
+                        <img src="img/3369515.jpg" alt="" style="max-width: 300px;">
                     </div>
                     <div class="textcols-item">
                         <div class="font_fame">
@@ -394,6 +410,7 @@
                         </div>
                         <p>Жди результатов
                             отбора</p>
+                        <img src="img/3255337.jpg" alt="" style="max-width: 200px;">
                     </div>
                 </div>
             </section>
@@ -446,13 +463,13 @@
 
         </div>
         <form id="applicationForm" name="application" method="post" action="\\api/grant">
-            <input class="input_app left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="input_app right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="input_app left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}"> 
-            <input class="input_app right" type="text" name="BirthDate"  required id="startDate" placeholder="Дата рождения*" onfocus="(this.type='date')" onblur="(this.type='text')">           
+           <div class="formm">
+            <input class="input_app" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="input_app" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="input_app" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}"> 
+            <input class="input_app" type="text" name="BirthDate"  required id="startDate" placeholder="Дата рождения*" onfocus="(this.type='date')" onblur="(this.type='text')">           
             
-
-                    <select class="input_app left wd" name="EducationLevel" id="EducationLevel">
+                    <select class="input_app wd" name="EducationLevel" id="EducationLevel">
                         <option value="" disabled selected>Уровень образования</option>
                         <option value=0>Колледж/Техникум</option>
                         <option value=1>Бакалавриат</option>
@@ -460,12 +477,11 @@
                         <option value=3>Магистратура</option>
 
                     </select>
-                    <select class="input_app right wd" required name="college" id="college">
+                    <select class="input_app" required name="college" id="college">
                         <option value="" selected disabled>Место учебы</option>
-                        </select>
-                    
+                    </select>
 
-                    <select class="input_app left wd" name="course" id="course" required>
+                    <select class="input_app wd ss" name="course" id="course" required>
                         <option value="" disabled selected>Курс</option>
                         <option value=1>1 курс</option>
                         <option value=2>2 курс</option>
@@ -474,24 +490,24 @@
                         <option value=5>5 курс</option>
                         <option value=6>6 курс</option>
                     </select>
-                    <input class="input_app right" type="email" name="Email" placeholder="Email*" required>
-                    <input class="input_app left" type="text" name="Phone" placeholder="Телефон*" required
+                    <input class="input_app" type="email" name="Email" placeholder="Email*" required>
+                    <input class="input_app" type="text" name="Phone" placeholder="Телефон*" required
                         pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
                     <input class="input_app right" type="text" name="OtherGrants"
                         placeholder="Есть ли другие стипендии, и какие*" required>
 
 
                     
-                    <select class="input_app left" name="EducationForm" id="EducationForm" required>
+                    <select class="input_app wd" name="EducationForm" id="EducationForm" required>
                         <option value="" disabled selected>Форма обучения</option>
                         <option value=0 >Очная</option>
                         <option value=1 >Заочная</option>
                         <option value=2 >Очно-заочная</option>
                     </select>
 
-                    <input class="input_app right" type="number" step="0.01" name="AverageMarks"
+                    <input class="input_app" type="number" step="0.01" name="AverageMarks"
                         placeholder="Средний балл за год*" required max='5'>
-
+					<div class="input_app_mid">
                     <select class="input_app wd" name="speciality" id="speciality" required>
                         <option value="" disabled selected>Направление обучения</option>
                         <option value=0>экономика</option>
@@ -505,6 +521,7 @@
                         <option value=8>информационная безопасность</option>
                         <option value=9>математическое моделирование (прикладная математика)</option>
                     </select>
+                    </div>
                     <div class="flex-auto relative">
                         <!---->
                         <div aria-haspopup="true" aria-controls="head-menu-online-banks-list"
@@ -518,6 +535,7 @@
                             <div class="shadow__button" data-v-54a1b447>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </form>
             </div>
