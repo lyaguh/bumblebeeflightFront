@@ -31,11 +31,12 @@ $(document).ready(function() {
 
 const applicationForm = document.forms.application;
 
+
 var title = document.getElementsByTagName("title")[0].innerHTML
 
 if (title == 'Стажировка' ||title=='Старт карьеры') {
 	var fileInput = document.querySelector('input[type="file"]')
-	var dropZone = document.getElementById('applicationForm');
+	var dropZone = document.getElementById('practiceFormArea');
 	var maxFileSize = 3000000;
 	var listOfFiles = document.getElementById('listOfFiles')
 	var existedFiles = []
@@ -56,6 +57,11 @@ function sendForm() {
 		if (xhr.status >= 300) {
 			alert('Произошла ошибка!')
 		}
+	}
+	if (title=='Стипендия'){
+		document.getElementById('averageMarks').value =  String(document.getElementById('averageMarks').value)
+		console.log(typeof document.getElementById('averageMarks').value)
+		console.log(document.getElementById('averageMarks').value)
 	}
 	let formData = new FormData(applicationForm);
 	xhr.send(formData);
@@ -89,6 +95,10 @@ applicationForm.addEventListener('submit', (e) => {
 		else{
 			sendForm();
 			applicationForm.reset();
+			$('#college').val(null).trigger('submit')
+			$('#courseDirection').val(null).trigger('submit')
+			$("#college").empty();
+			$("#courseDirection").empty();
 			existedFiles=[]
 			while (listOfFiles.firstChild) {
 				listOfFiles.removeChild(listOfFiles.firstChild);
@@ -120,17 +130,22 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	if (typeof (window.FileReader) == 'undefined') {
 		dropZone.text('Не поддерживается браузером!');
 		dropZone.addClass('error');
+		document.getElementById('dropZone').style.opacity = '0'
 		setTimeout(function(){
 			dropZone.classList.remove('error');
-		  }, 500);
+			document.getElementById('dropZone').style.opacity = '1';
+		  }, 2000);
 	}
 		dropZone.ondragover = function (e) {
 		dropZone.classList.add('hover');
+		document.getElementById('dropZone').style.opacity = '0'
+		
 		return false;
 	};
 
 	dropZone.ondragleave = function () {
 		dropZone.classList.remove('hover');
+		document.getElementById('dropZone').style.opacity = '1'
 		return false;
 	};
 
@@ -138,6 +153,7 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	dropZone.ondrop = function (event) {
 		event.preventDefault();
 		dropZone.classList.remove('hover');
+		document.getElementById('dropZone').style.opacity = '1'
 		attachingFiles(event.dataTransfer.files)
 
 	};
@@ -165,8 +181,13 @@ function attachingFiles(attachedFilesDT) {
 			correctAttachedFiles.push(attachedFiles[i])
 		} else {
 			if (attachedFiles[i].size > maxFileSize) {
+				// dropZone.addClass('error');
+				// document.getElementById('dropZone').style.opacity = '0'
+				// setTimeout(function(){
+				// 	dropZone.classList.remove('error');
+				// 	document.getElementById('dropZone').style.opacity = '1';
+				// }, 2000);
 				alert('Файл ' + attachedFiles[i].name + ' слишком большой!');
-				//dropZone.classList.add('error');
 				return false;
 			}
 		}
