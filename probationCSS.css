@@ -89,7 +89,9 @@ input{
     line-height: 16px;
     border: 2px solid #e9f2ff;
     border-radius: 5px;
-    padding-left: 25px;
+    text-indent: 15px;
+    padding: 0%;
+    /* padding-left: 25px; */
 }
 .form_card{
     background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
@@ -144,9 +146,20 @@ input{
 
 .forms_form input{
 	margin-top: 15px;
-	width: 400px;
+	/* width: 400px; */
 }
-
+.forms_form select{
+	margin-top: 15px;
+	/* width: 400px; */
+}
 .dropezone{
 	margin-top: 15px;
+}
+.form_item{
+    width:100%;
+    font-size: 18px;
+    height: 60px; 
+    border-radius: 4px;
+    border: 1px solid #c9c9c9;
+	margin-top: 15px
 }

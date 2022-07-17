@@ -1254,3 +1254,11 @@ main section{
 .bigselect {
     width: 500px !important;
 }
+.form_item{
+    width:100%;
+    font-size: 18px;
+    height: 60px; 
+    border-radius: 4px;
+    border: 1px solid #c9c9c9;
+	margin-top: 15px
+}
