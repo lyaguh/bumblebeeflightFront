@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корпоративный университет</title>
+    <title>Курсы</title>
     <script defer src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -244,7 +244,7 @@
                                     <a href="/university" aria-controls="head-menu-2-level-dropdown" role="menuitem"
                                         rel="noopener noreferrer" itemprop="url" aria-haspopup="true"
                                         class="level2__link__a" data-v-7f316a72 data-v-67a77140>
-                                        Корпоративный университет
+                                        Курсы
                                     </a>
                                     <!---->
                                 </li>
@@ -367,9 +367,12 @@
             <input class="left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
             <input class="right" type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
             <input class="left email" type="email" name="Email" placeholder="Email*" required>
-            <select class="input_app right" name="college" id="college">
+            <p >
+                <select  class="input_app left" name="college" id="college">
                 <option value="" selected disabled>Место учебы</option>
                 </select>
+            </p>
+            
             <!-- <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required> -->
 
             <select class="left" name="course" id="course" required >

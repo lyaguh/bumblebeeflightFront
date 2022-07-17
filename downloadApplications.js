@@ -206,7 +206,7 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
                     responseInfluencingFilters+=value
                 }
                 else {
-                    responseInfluencingFilters+=courseDirectionList[Number(value)+1].textContent
+                    responseInfluencingFilters+=courseDirectionList[Number(value)].textContent
                 }
             }   
         }   
@@ -228,12 +228,10 @@ function fileName(id, filters) {
     var currentDate = new Date()
     var fName=currentDate.toJSON().substring(0,10) + "_"
     if (id.includes('/api/University')) {
-        fName +='Корпоративный_университет'
-    }
+        fName +='Курсы'}
     else {
         if (id.includes('/api/Practice')) {
-            fName +='Практика'
-        }
+            fName +='Практика'}
         else {
             if (id.includes('/api/Probation')) {
                 fName +='Стажировка'
@@ -241,10 +239,7 @@ function fileName(id, filters) {
             else {
                 if (id.includes('/api/Grant')) {
                     fName +='Именная_стипендия_Ак_Барс_Банка'
-                }
-            }
-        }
-    }
+                }}}}
     var nameFilters={'isChecked':'_толькоНовые', 'startInterval':'_с_', 'finishInterval':'_по_',
     'college':'_', 'course':'_курс','courseDirection':'_ВыбранноеНаправлениеКурсов_'}
     for (i = 0;i < Object.values(filters).length; i++){
@@ -253,14 +248,10 @@ function fileName(id, filters) {
         if (value!=null & value!=false) {
             fName+=nameFilters[key]
             if (key!='isChecked' & key!='courseDirection'){
-                fName+=value
-            }
+                fName+=value}
             if (key=='courseDirection'){
-                fName+=courseDirectionList[Number(value)+1].textContent
-            }
-
-        }
-    }
+                fName+=courseDirectionList[Number(value)].textContent
+            }}}
     return fName
 }
 
@@ -274,7 +265,7 @@ async function sendRequest(serverURL, fName, filters, id) {
         xhr.setRequestHeader(key, encodeURIComponent(value) )
         
     }
-    xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
+    //xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
     xhr.responseType='blob'
     xhr.onload = function() {
         let responseObj = this.response;
