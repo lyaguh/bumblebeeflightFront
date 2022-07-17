@@ -31,6 +31,7 @@ $(document).ready(function() {
 
 const applicationForm = document.forms.application;
 
+
 var title = document.getElementsByTagName("title")[0].innerHTML
 
 if (title == 'Стажировка' ||title=='Старт карьеры') {
@@ -56,6 +57,11 @@ function sendForm() {
 		if (xhr.status >= 300) {
 			alert('Произошла ошибка!')
 		}
+	}
+	if (title=='Стипендия'){
+		document.getElementById('averageMarks').value =  String(document.getElementById('averageMarks').value)
+		console.log(typeof document.getElementById('averageMarks').value)
+		console.log(document.getElementById('averageMarks').value)
 	}
 	let formData = new FormData(applicationForm);
 	xhr.send(formData);
@@ -89,6 +95,8 @@ applicationForm.addEventListener('submit', (e) => {
 		else{
 			sendForm();
 			applicationForm.reset();
+			$('#college').val(null).trigger('submit')
+			$('#courseDirection').val(null).trigger('submit')
 			$("#college").empty();
 			$("#courseDirection").empty();
 			existedFiles=[]
