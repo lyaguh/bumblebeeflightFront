@@ -367,12 +367,11 @@
             <input class="left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
             <input class="right" type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
             <input class="left email" type="email" name="Email" placeholder="Email*" required>
-            <select class="input_app right" name="college" id="college">
-                <option value="" selected disabled>Место учебы</option>
-                </select>
-            <!-- <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required> -->
-
-            <select class="left" name="course" id="course" required >
+            
+            <input class="left" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" onfocus="(this.type='date')" onblur="(this.type='text')">
+            
+            <input class="left s1" type="number" name="duration" placeholder="дней">
+            <select class="left s2" name="course" id="course" required >
                 <option value="" disabled selected>Курс</option>
                 <option value=1>1 курс</option>
                 <option value=2>2 курс</option>
@@ -381,7 +380,13 @@
                 <option value=5>5 курс</option>
                 <option value=6>6 курс</option>
             </select>
-            <select class="right" name="courseDirection" id="courseDirection" required>
+            <select class="left" name="college" id="college">
+                <option value="" selected disabled>Место учебы</option>
+                </select>
+            <!-- <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required> -->
+
+            
+            <select class="left s3" name="courseDirection" id="courseDirection" required>
                 <option value='' disabled selected>Программа обучения</option>
                 <option value=1>Welcome тренинг</option>
                 <option value=2>Активные продажи по телефону ЮЛ</option>
@@ -440,9 +445,6 @@
                 
                 
             </select>
-            <input class="left" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" onfocus="(this.type='date')" onblur="(this.type='text')">
-            
-            <input class="right" type="number" name="duration">дней
             <div class="flex-auto relative">
                 <!---->
                 <div >              
