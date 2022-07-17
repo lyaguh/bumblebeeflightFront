@@ -154,7 +154,7 @@ input{
     max-width: 500px;
 }
 .border{
-    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    background: #f6f6f6 ;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     max-width: 600px;
