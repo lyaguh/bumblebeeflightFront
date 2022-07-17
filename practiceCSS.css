@@ -183,3 +183,36 @@ select#course{
 #sdropZone{
 	margin-top: 15px;
 }
+
+/* drag and drop - "hover" */
+.upload-file__label.hover .upload-file__text {
+    color: #ffb300;
+}
+.upload-file__label.hover .upload-file__icon path {
+    fill: #ffb300;
+}
+.upload-file__label.hover {
+    border: 2px dashed #ffb300;
+}
+
+/* drag and drop - ошибка */
+.upload-file__label.error .upload-file__text {
+    color: #d32f2f;
+}
+.upload-file__label.error .upload-file__icon path {
+    fill: #d32f2f;
+}
+.upload-file__label.error {
+    border: 2px dashed #d32f2f;
+}
+
+/* drag and drop - файл(ы) успешно перетянут(ы) */
+.upload-file__label.drop .upload-file__text {
+    color: #388e3c;
+}
+.upload-file__label.drop .upload-file__icon path {
+    fill: #388e3c;
+}
+.upload-file__label.drop {
+    border: 2px dashed #388e3c;
+}

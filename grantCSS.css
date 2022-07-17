@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 .body_content{
-    margin: 0 8%;
+    margin: 0 7%;
+	
+}
+
+body{
+	background-color: white;
 }
 
 .font_fame{
@@ -69,18 +74,21 @@
     width: 500px;
     border: 1px solid #c9c9c9;
     border-radius: 4px;
+	margin: 10px 10px 20px 0;
 }
 
-.input_app.left{
-    margin: 10px 10px 20px 0;
+.formm{
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
-.input_app.right{
-    margin: 10px 0 20px 10px;
+.input_app.wd{
+	width: 512px;
 }
 
-.input_app.left.wd{
-    width: 512px;
+.input_app.ss{
+	margin-top: 25px;
+	
 }
 
 .phone__w100{
@@ -127,3 +135,64 @@
     padding-top: 35px;
 
 }
+
+.block_content{
+	width: 100%;
+	min-height: 200px;
+	padding-bottom: 150px;
+}
+
+.block_content img{
+	max-width: 400px;
+	float: right;
+}
+
+
+.list_li img{
+	max-width: 400px;
+	float: right;
+}
+
+.block_content.a img{
+	max-width: 400px;
+	float: right;
+	top: 0;
+}
+
+.block_content.b img{
+	max-width: 400px;
+	float: left;
+	top: 0;
+}
+
+.block_content.c img{
+	max-width: 400px;
+	float: right;
+	top: 0;
+}
+
+.block_content.d img{
+	max-width: 400px;
+	float: left;
+	top: 0;
+}
+
+.block_content.e img{
+	max-width: 400px;
+	float: right;
+	top: 0;
+}
+
+.textcols-item.midl{
+	width: 300px;
+}
+
+.textcols-item{
+	height: 350px;
+}
+
+.flex-auto.relative{
+	text-align: center;
+	margin-top: 15px;
+}
+
