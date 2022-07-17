@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
     <link rel="stylesheet" href="universityCSS.css">
+    <link rel="stylesheet" href="probationCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
 </head>
 
@@ -356,26 +357,29 @@
             <p>Узнать подробнее об образовательных программах можно <a href="/documents/Каталог программ.pdf" download="">здесь</a></p>
         </div>
     </section>
+
+
     <section class="forms_form mn">            
         <div>
             <h2>Заполните форму обратной связи</h2>
             <h3>Если хотите стать участником наших программ</h3>
         </div>
+        <div id="formLabel">
         <form id="application" name="application" method="post" action="/api/university">
-            <input class="left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
-            <input class="right" type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
-            <input class="left email" type="email" name="Email" placeholder="Email*" required>
-            <p >
-                <select  class="input_app left" name="college" id="college">
+            <input class="form_item" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="form_item" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="form_item" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
+            <input class="form_item" type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
+            <input class="form_item" type="email" name="Email" placeholder="Email*" required>
+            <div style="margin-top: 15px;">
+                <select  class="form_item"  name="college" id="college" required>
                 <option value="" selected disabled>Место учебы</option>
                 </select>
-            </p>
+            </div>
             
             <!-- <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required> -->
-
-            <select class="left" name="course" id="course" required >
+          
+            <select class="form_item" name="course" id="course" required style="text-indent: 15px;">
                 <option value="" disabled selected>Курс</option>
                 <option value=1>1 курс</option>
                 <option value=2>2 курс</option>
@@ -384,7 +388,8 @@
                 <option value=5>5 курс</option>
                 <option value=6>6 курс</option>
             </select>
-            <select class="right" name="courseDirection" id="courseDirection" required>
+            <div style="margin-top: 15px;">
+            <select class="form_item" name="courseDirection" id="courseDirection" required>
                 <option value='' disabled selected>Программа обучения</option>
                 <option value=1>Welcome тренинг</option>
                 <option value=2>Активные продажи по телефону ЮЛ</option>
@@ -442,13 +447,16 @@
                 <option value=54>Повышение финансовой грамотности</option>
                 
                 
-            </select>
-            <input class="left" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" style="width: 80%;" onfocus="(this.type='date')" onblur="(this.type='text')">
-            <div style="width: 100%;"><input class="right" type="number" name="duration" style="width: 75%;"><a style="width: 30%; text-align: center;">дней</a> </div>
+            </select></div>
+            <input class="form_item" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" onfocus="(this.type='date')" onblur="(this.type='text')">
+            <div style="width: 100%; display: flex; justify-content: space-between;">
+                <input class="form_item" type="number" name="duration" style="width: 90%;">
+                <a style="width: 10%; text-align: center; margin: auto;">дней</a> 
+            </div>
             
             <div >              
-                    <input type="checkbox" name="isCertificated" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
-                </div>
+                <input type="checkbox" name="isCertificated" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
+            </div>
             <div class="flex-auto relative" style="margin-bottom: 1em; margin-top: 1em">
                 <!---->
                 
@@ -465,6 +473,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </section>
 
 </div>

@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
+    <link rel="stylesheet" href="universityCSS.css">
+    <link rel="stylesheet" href="probationCSS.css">
     <link rel="stylesheet" href="grantCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
     
@@ -452,7 +454,7 @@
                 </div>
             </section>
         </div>
-        <section>
+        <section class="forms_form mn">
             <div class="application">
                 
                 <div data-v-7f316a72="" data-v-4773eb5d="">
@@ -466,12 +468,14 @@
                     <!---->
 
                 </div>
+            </div>
+                
         <form id="applicationForm" name="application" method="post" action="\\api/grant">
            <div class="formm">
-            <input class="input_app" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="input_app" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
-            <input class="input_app" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}"> 
-            <input class="input_app" type="text" name="BirthDate"  required id="startDate" placeholder="Дата рождения*" onfocus="(this.type='date')" onblur="(this.type='text')">           
+            <input class="form_item" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="form_item" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
+            <input class="form_item" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}"> 
+            <input class="form_item" type="text" name="BirthDate"  required id="startDate" placeholder="Дата рождения*" onfocus="(this.type='date')" onblur="(this.type='text')">           
             
                     <select class="input_app wd" name="EducationLevel" id="EducationLevel">
                         <option value="" disabled selected>Уровень образования</option>
@@ -485,7 +489,7 @@
                         <option value="" selected disabled>Место учебы</option>
                     </select>
 
-                    <select class="input_app wd ss" name="course" id="course" required>
+                    <select class="form_item" name="course" id="course" required style="text-indent: 15px;">
                         <option value="" disabled selected>Курс</option>
                         <option value=1>1 курс</option>
                         <option value=2>2 курс</option>
@@ -494,22 +498,22 @@
                         <option value=5>5 курс</option>
                         <option value=6>6 курс</option>
                     </select>
-                    <input class="input_app" type="email" name="Email" placeholder="Email*" required>
-                    <input class="input_app" type="text" name="Phone" placeholder="Телефон*" required
+                    <input class="form_item" type="email" name="Email" placeholder="Email*" required>
+                    <input class="form_item" type="text" name="Phone" placeholder="Телефон*" required
                         pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
-                    <input class="input_app right" type="text" name="OtherGrants"
+                    <input class="form_item" type="text" name="OtherGrants"
                         placeholder="Есть ли другие стипендии, и какие*" required>
 
 
                     
-                    <select class="input_app wd" name="EducationForm" id="EducationForm" required>
+                    <select class="form_item" name="EducationForm" id="EducationForm" required style="text-indent: 15px;">
                         <option value="" disabled selected>Форма обучения</option>
                         <option value=1 >Очная</option>
                         <option value=2 >Заочная</option>
                         <option value=3 >Очно-заочная</option>
                     </select>
 
-                    <input id="averageMarks" class="input_app" type="number" step="0.01" name="AverageMarks"
+                    <input id="averageMarks" class="form_item" type="number" step="0.01" name="AverageMarks"
                         placeholder="Средний балл за год*" required min="0" max='5'>
 					<div class="input_app_mid">
                     <select class="input_app wd" name="speciality" id="speciality" required>
@@ -542,8 +546,11 @@
                     </div>
                     </div>
                 </form>
-            </div>
+            
+            
+            
         </section>
+        
     </div>
 
 

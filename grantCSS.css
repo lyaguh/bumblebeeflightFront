@@ -71,7 +71,7 @@ body{
     padding: 0 0 0 10px;
     font-size: 18px;
     height: 60px; 
-    width: 500px;
+    width: 100%;
     border: 1px solid #c9c9c9;
     border-radius: 4px;
 	margin: 10px 10px 20px 0;
@@ -83,7 +83,7 @@ body{
 }
 
 .input_app.wd{
-	width: 512px;
+	width: 100%;
 }
 
 .input_app.ss{
@@ -113,7 +113,7 @@ body{
     padding-left: 12px;
     font-size: 18px;
     height: 60px;
-    width: 500px;
+    width: 100%;
     font-weight: 400;
     border-radius: 4px;
     /* margin: 10px 0 30px 10px; */
@@ -200,3 +200,7 @@ body{
 	margin-top: 15px;
 }
 
+.forms_form{
+    padding-left: 120px;
+    padding-right: 120px;
+}

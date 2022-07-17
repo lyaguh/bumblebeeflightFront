@@ -304,9 +304,9 @@
                                     </span>
                                     <span class="button_loading color__neon__loading" data-v-54a1b447></span>
                                 </button>
-                                </a>
+                                
                                 <div class="shadow__button" data-v-54a1b447>
-                                </div>
+                                </div></a>
                             </div>
                         </div>
                     </div>
@@ -343,6 +343,7 @@
         </div>
         <div id="dropZone">
         <form id="applicationForm" name="application"  method="post" action="\\api/probation">
+            <div style="width: 400px;">
             <input type="text" placeholder="Фамилия" name="secondname" id="secondname" required pattern="[А-Яа-яЁё]{1,}">
             <input type="text" placeholder="Имя" name="firstname" id="firstname" required pattern="[А-Яа-яЁё]{1,}">
             <input type="text" placeholder="Отчество" name="patronymic" id="patronymic" pattern="[А-Яа-яЁё]{1,}">
@@ -359,9 +360,24 @@
             <ul id="listOfFiles">
                 
             </ul>
-            <button type="submit" class="btn">
-                Отправить
-            </button>
+            <div class="flex-auto relative" style="margin-top: 1em;">
+                <!---->
+                <div aria-haspopup="true" aria-controls="head-menu-online-banks-list"
+                    class="cnt__btn phone__w100" data-v-54a1b447 data-v-67a77140>
+                    <a href="/#top">
+                    <button type="submit" name="button" 
+                        class="button color__neon xs phone__w100" data-v-54a1b447>
+                        <span class="button__name button__name__pc xs" data-v-54a1b447>Отправить
+                            
+                        </span>
+                        <span class="button_loading color__neon__loading" data-v-54a1b447></span>
+                    </button>
+                    
+                    <div class="shadow__button" data-v-54a1b447>
+                    </div></a>
+                </div>
+            </div>
+            </div>
         </form>
     </div>
     </section>
