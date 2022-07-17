@@ -44,14 +44,15 @@ body{
 }
 .btn{
     margin-top: 10px;
-    background: #00b2a9;
+    background: #02837d;
     border-radius: 5px;
     color: #FFFFFF;
     line-height: 20px;
 	border: none;
+    margin: 0 auto;
 }
-.btn:hover, .btn:active{
-    background: #00b2b1;
+.btn:hover .btn:active{
+    background: #026a6a;
 }
 
 h2{
@@ -216,4 +217,19 @@ select#course{
 }
 .upload-file__label.drop {
     border: 2px dashed #388e3c;
+}
+
+.border{
+    background: #f6f6f6 ;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    max-width: 600px;
+    padding-left: 30px;
+    padding-right: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
 }

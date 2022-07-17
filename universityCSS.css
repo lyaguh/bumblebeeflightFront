@@ -65,6 +65,15 @@ position: relative;
 }
 
 
+.left.s2{
+	margin-bottom: 15px;
+	width: 512px;
+}
+
+.left.s3{
+	margin-top: 15px;
+}
+
 .cnt__btn.phone__w100.a{
 	margin-top: 10px;
 }
