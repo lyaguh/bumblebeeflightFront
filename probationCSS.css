@@ -45,7 +45,7 @@ body{
 
 }
 .btn{
-    margin-top: 10px;
+    margin-top: 20px;
     background: #18B8DB;
     border-radius: 5px;
     color: #FFFFFF;
@@ -149,4 +149,21 @@ input{
 
 .dropezone{
 	margin-top: 15px;
+}
+.text_m{
+    max-width: 500px;
+}
+.border{
+    background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    max-width: 600px;
+    padding-left: 30px;
+    padding-right: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    margin: 0px auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
 }
