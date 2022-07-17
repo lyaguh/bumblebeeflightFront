@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курсы</title>
     <script defer src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script defer src="script.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studentCSS.css">
@@ -361,7 +361,7 @@
             <h2>Заполните форму обратной связи</h2>
             <h3>Если хотите стать участником наших программ</h3>
         </div>
-        <form id="application" name="application" method="post" action="/api/universityForm">
+        <form id="application" name="application" method="post" action="/api/university">
             <input class="left" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="right" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="left" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
@@ -449,7 +449,7 @@
             <div class="flex-auto relative">
                 <!---->
                 <div >              
-                    <input type="checkbox" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
+                    <input type="checkbox" name="isCertificated" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
                 </div>
                 <div aria-haspopup="true" aria-controls="head-menu-online-banks-list" class="cnt__btn phone__w100"
                     data-v-54a1b447 data-v-67a77140>

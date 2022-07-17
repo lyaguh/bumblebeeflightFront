@@ -1,4 +1,4 @@
-let serverURL='https://08d6-178-207-91-7.eu.ngrok.io'
+let serverURL='https://0fff-178-204-72-23.eu.ngrok.io'
 if (!window.jQuery) {
 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
   }
@@ -173,6 +173,10 @@ function influenceFilters(filters, category){
             influencingFilters['courseDirection']=null
             nonInfluencingFilters.push("выбранное направление курсов")
         } 
+        if (influencingFilters['college']!=''){
+            influencingFilters['college']=''
+            nonInfluencingFilters.push("учебное заведение")
+        }
     }
     if (category.includes('Grant')){
         if (influencingFilters['courseDirection']!=null){
@@ -202,11 +206,18 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
                 if (key.includes('Interval')!=true){
                     responseInfluencingFilters+='- '
                 }
-                if (key!='courseDirection'){
+                if (key!='courseDirection' & key!='college'){
                     responseInfluencingFilters+=value
+
                 }
                 else {
-                    responseInfluencingFilters+=courseDirectionList[Number(value)].textContent
+                    if (key=='courseDirection') {
+                        responseInfluencingFilters+=courseDirectionList[Number(value)].textContent
+                    }
+                    else {
+                        console.log(document.getElementById('college'))
+                        responseInfluencingFilters+=document.getElementById('college')[1].textContent
+                    }
                 }
             }   
         }   

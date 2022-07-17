@@ -2,7 +2,7 @@
 if (!window.jQuery) {
 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
   }
-const urlToBack = 'https://08d6-178-207-91-7.eu.ngrok.io'
+const urlToBack = 'https://0fff-178-204-72-23.eu.ngrok.io'
 $(document).ready(function() {
 	$('#courseDirection').select2({
 
@@ -17,6 +17,7 @@ $(document).ready(function() {
         ajax: {
           url: urlToBack+'/api/College',
           processResults: function (data) {
+			console.log(data)
             return {
               results: data
             };
@@ -41,6 +42,7 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 }
 var urlToEndpoint = applicationForm.action.indexOf('api')
 function sendForm() {	
+	
 	const xhr = new XMLHttpRequest();
 	var urlToEndpoint = applicationForm.action.indexOf('api')
 
@@ -55,7 +57,6 @@ function sendForm() {
 			alert('Произошла ошибка!')
 		}
 	}
-
 	let formData = new FormData(applicationForm);
 	xhr.send(formData);
 
@@ -137,11 +138,7 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	dropZone.ondrop = function (event) {
 		event.preventDefault();
 		dropZone.classList.remove('hover');
-		dropZone.classList.add('drop');
 		attachingFiles(event.dataTransfer.files)
-		setTimeout(function(){
-			dropZone.classList.remove('drop');
-		  }, 1000);
 
 	};
 	if (title == 'Стажировка') 
