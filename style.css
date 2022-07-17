@@ -1202,7 +1202,7 @@ main section{
     justify-content: center;
 }
 
-#applicationForm.drop {
+#dropZone.drop {
     z-index: 2;
 
     background: #fff;
@@ -1211,21 +1211,21 @@ main section{
     border-width: 2px;
 }
 
-#applicationForm.hover {
+#practiceFormArea.hover {
     z-index: 2;
+    color: rgba(246, 246, 246, 1.0);
 
-    background: #ddd;
     border-color: #00b2a9;
     border-style: dashed;
     border-width: 2px;
 }
 
-#applicationForm.error {
+#practiceFormArea.error {
     z-index: 2;
+    color: rgba(246, 246, 246, 1.0);
 
-    background: #ddd;
     border-color: rgb(219, 10, 10);
-    border-style: solid;
+    border-style: dashed;
     border-width: 2px;
 }
 

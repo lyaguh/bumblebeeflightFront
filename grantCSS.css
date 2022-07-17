@@ -122,6 +122,10 @@ body{
     
 }
 
+.select2 .select2-container.select2-container--default {
+    width: 0px;
+}
+
 /* .select2-container--default .select2-dropdown .select2-dropdown--below{
     width: 530px;
 }
