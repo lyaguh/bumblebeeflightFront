@@ -105,7 +105,6 @@ applicationForm.addEventListener('submit', (e) => {
 
 
 
-
 if (title == 'Стажировка' ||title=='Старт карьеры') {
 		// Прикрепление файлов
 
@@ -120,6 +119,9 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 	if (typeof (window.FileReader) == 'undefined') {
 		dropZone.text('Не поддерживается браузером!');
 		dropZone.addClass('error');
+		setTimeout(function(){
+			dropZone.classList.remove('error');
+		  }, 500);
 	}
 		dropZone.ondragover = function (e) {
 		dropZone.classList.add('hover');
@@ -137,6 +139,9 @@ if (title == 'Стажировка' ||title=='Старт карьеры') {
 		dropZone.classList.remove('hover');
 		dropZone.classList.add('drop');
 		attachingFiles(event.dataTransfer.files)
+		setTimeout(function(){
+			dropZone.classList.remove('drop');
+		  }, 1000);
 
 	};
 	if (title == 'Стажировка') 
