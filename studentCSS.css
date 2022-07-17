@@ -17,8 +17,15 @@
 
 .imgcard{
     text-align: center;
+    height: 50%;
 }
 
+.card_button{
+  height:20%
+}
+
+.description{
+  height: 80%;
 }
 
 .ofic{

@@ -443,14 +443,15 @@
                 
                 
             </select>
-            <input class="left" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" onfocus="(this.type='date')" onblur="(this.type='text')">
+            <input class="left" type="text" name="startDate" id="startDate" placeholder="Предпочтительная дата начала" style="width: 80%;" onfocus="(this.type='date')" onblur="(this.type='text')">
+            <div style="width: 100%;"><input class="right" type="number" name="duration" style="width: 75%;"><a style="width: 30%; text-align: center;">дней</a> </div>
             
-            <input class="right" type="number" name="duration">дней
-            <div class="flex-auto relative">
-                <!---->
-                <div >              
+            <div >              
                     <input type="checkbox" name="isCertificated" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
                 </div>
+            <div class="flex-auto relative" style="margin-bottom: 1em; margin-top: 1em">
+                <!---->
+                
                 <div aria-haspopup="true" aria-controls="head-menu-online-banks-list" class="cnt__btn phone__w100"
                     data-v-54a1b447 data-v-67a77140>
                     <button type="submit" name="button" 
