@@ -206,7 +206,7 @@ function createConfirmText(influencingFilters, nonInfluencingFilters){
                     responseInfluencingFilters+=value
                 }
                 else {
-                    responseInfluencingFilters+=courseDirectionList[Number(value)+1].textContent
+                    responseInfluencingFilters+=courseDirectionList[Number(value)].textContent
                 }
             }   
         }   
@@ -228,7 +228,7 @@ function fileName(id, filters) {
     var currentDate = new Date()
     var fName=currentDate.toJSON().substring(0,10) + "_"
     if (id.includes('/api/University')) {
-        fName +='Корпоративный_университет'}
+        fName +='Курсы'}
     else {
         if (id.includes('/api/Practice')) {
             fName +='Практика'}
@@ -250,7 +250,7 @@ function fileName(id, filters) {
             if (key!='isChecked' & key!='courseDirection'){
                 fName+=value}
             if (key=='courseDirection'){
-                fName+=Number(value)+1
+                fName+=courseDirectionList[Number(value)].textContent
             }}}
     return fName
 }
@@ -265,7 +265,7 @@ async function sendRequest(serverURL, fName, filters, id) {
         xhr.setRequestHeader(key, encodeURIComponent(value) )
         
     }
-    xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
+    //xhr.setRequestHeader('fileName', encodeURIComponent(fName) )
     xhr.responseType='blob'
     xhr.onload = function() {
         let responseObj = this.response;
