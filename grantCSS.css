@@ -14,18 +14,31 @@ body{
 
 .bars_img img{
     float: right;
-    width: 40%;
+    width: 80%;
     position: relative;
 }
 
 .bars_text{
-    width: 50%;
-    padding-top: 30px;
+    width: 30%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
 }
 
 .bars_block{
-    height: 350px;
-    
+    height: 430px;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+.bars_info{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+.buttonsu{
+    line-height: 50px;
+    margin-top: 50px;
 }
 
 .bars_text .cnt__btn{
