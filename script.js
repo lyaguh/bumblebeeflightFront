@@ -2,7 +2,7 @@
 if (!window.jQuery) {
 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
   }
-const urlToBack = 'https://0fff-178-204-72-23.eu.ngrok.io'
+const urlToBack = 'https://5182-178-207-91-7.eu.ngrok.io'
 $(document).ready(function() {
 	$('#courseDirection').select2({
 
