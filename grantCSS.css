@@ -8,10 +8,6 @@ body{
 	background-color: white;
 }
 
-.font_fame{
-    font-family: 'Inconsolata', monospace;
-}
-
 .bars_img img{
     float: right;
     width: 80%;
@@ -76,10 +72,6 @@ body{
 	margin-right: 0 ;
 }
 
-.application{
-    text-align: center;
-}
-
 .input_app{
     padding: 0 0 0 10px;
     font-size: 18px;
@@ -90,10 +82,6 @@ body{
 	margin: 10px 10px 20px 0;
 }
 
-.formm{
-	max-width: 1000px;
-	margin: 0 auto;
-}
 
 .input_app.wd{
 	width: 100%;
@@ -129,7 +117,6 @@ body{
     width: 100%;
     font-weight: 400;
     border-radius: 4px;
-    /* margin: 10px 0 30px 10px; */
     border: 1px solid #c9c9c9;
     color: #757575;
     
@@ -139,13 +126,7 @@ body{
     width: 0px;
 }
 
-/* .select2-container--default .select2-dropdown .select2-dropdown--below{
-    width: 530px;
-}
 
-.select2-container--default .select2-dropdown .select2-dropdown--above{
-    width: 530px;
-} */
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     color: #000;
@@ -211,9 +192,4 @@ body{
 .flex-auto.relative{
 	text-align: center;
 	margin-top: 15px;
-}
-
-.forms_form{
-    padding-left: 120px;
-    padding-right: 120px;
 }

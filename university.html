@@ -12,9 +12,8 @@
     <script defer src="script.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="studentCSS.css">
+    <link rel="stylesheet" href="forms.css">
     <link rel="stylesheet" href="universityCSS.css">
-    <link rel="stylesheet" href="probationCSS.css">
     <link rel="shortcut icon" href="img/ak-bars-bank.png" type="image/x-icon">
 </head>
 
@@ -285,7 +284,7 @@
     </div>
 
     <!--main part-->
-<div class="main_content">
+<div class="main_content" style="background-color: white;">
     <section>
         <div class="main_blok">
             <img src="img/univer_img.PNG" alt="" style="width: 100%;">
@@ -359,26 +358,24 @@
     </section>
 
 
-    <section class="forms_form mn">            
+    <section class="forms_form mn" style="margin-bottom: 0;">            
         <div>
             <h2>Заполните форму обратной связи</h2>
             <h3>Если хотите стать участником наших программ</h3>
         </div>
         <div id="formLabel">
-        <form id="application" name="application" method="post" action="/api/university">
+        <form id="application" name="application" class="formm" method="post" action="/api/university">
             <input class="form_item" type="text" name="Secondname" placeholder="Фамилия*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="form_item" type="text" name="Firstname" placeholder="Имя*" required pattern="[А-Яа-яЁё]{1,}">
             <input class="form_item" type="text" name="Patronymic" placeholder="Отчество" pattern="[А-Яа-яЁё]{1,}">                        
             <input class="form_item" type="text" name="Phone" placeholder="Телефон*" required pattern="((8|\+7?)[\- ]?)?(\(?\d{3}\)?[\- ]?)?([\d\- ]{7,10})">
             <input class="form_item" type="email" name="Email" placeholder="Email*" required>
-            <div style="margin-top: 15px;">
-                <select  class="form_item"  name="college" id="college" required>
+            <div style="margin-top: 15px; ">
+                <select  class="form_item"  name="college" id="college" style="width:500px" required>
                 <option value="" selected disabled>Место учебы</option>
                 </select>
             </div>
-            
-            <!-- <input class="input_app right" type="text" name="College" placeholder="Место учебы*" required> -->
-          
+                     
             <select class="form_item" name="course" id="course" required style="text-indent: 15px;">
                 <option value="" disabled selected>Курс</option>
                 <option value=1>1 курс</option>
@@ -389,7 +386,7 @@
                 <option value=6>6 курс</option>
             </select>
             <div style="margin-top: 15px;">
-            <select class="form_item" name="courseDirection" id="courseDirection" required>
+            <select class="form_item" name="courseDirection" id="courseDirection" style="width:500px" required>
                 <option value='' disabled selected>Программа обучения</option>
                 <option value=1>Welcome тренинг</option>
                 <option value=2>Активные продажи по телефону ЮЛ</option>
@@ -457,11 +454,11 @@
             <div >              
                 <input type="checkbox" name="isCertificated" style="cursor:pointer"><span style="cursor:pointer"> Есть сертификат</span>
             </div>
-            <div class="flex-auto relative" style="margin-bottom: 1em; margin-top: 1em">
+            <div class="flex-auto relative">
                 <!---->
                 
                 <div aria-haspopup="true" aria-controls="head-menu-online-banks-list" class="cnt__btn phone__w100"
-                    data-v-54a1b447 data-v-67a77140>
+                    data-v-54a1b447 data-v-67a77140  style="margin-bottom: 1em; margin-top: 1em">
                     <button type="submit" name="button" 
                         class="button color__neon xs phone__w100" data-v-54a1b447>
                         <span class="button__name button__name__pc xs" data-v-54a1b447>Отправить заявку
@@ -475,7 +472,7 @@
         </form>
         </div>
     </section>
-
+    
 </div>
 
 
