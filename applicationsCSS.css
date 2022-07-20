@@ -43,3 +43,23 @@
 select, input{
 	border: 1px solid #c9c9c9;
 }
+.imgcard{
+    text-align: center;
+    height: 50%;
+}
+.col{
+	height: 100%;
+    position: absolute;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    text-align: center;
+
+}
+.card img{
+    width: 280px;
+    height: 300px;    
+}
+
+.card-body{
+    height: max-content;
+}

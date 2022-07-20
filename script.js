@@ -2,7 +2,7 @@
 if (!window.jQuery) {
 	document.write('<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>')
   }
-const urlToBack = 'https://5182-178-207-91-7.eu.ngrok.io'
+const urlToBack = 'https://79c5-178-205-32-184.eu.ngrok.io'
 $(document).ready(function() {
 	$('#courseDirection').select2({
 
@@ -64,6 +64,7 @@ function sendForm() {
 		console.log(document.getElementById('averageMarks').value)
 	}
 	let formData = new FormData(applicationForm);
+	console.log('certificated',document.getElementsByName('isCertificated'))
 	xhr.send(formData);
 
 }

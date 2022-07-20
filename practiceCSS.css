@@ -37,23 +37,8 @@ body{
     padding: px px px px;
     margin: px 10px px 40px;
     margin-right: -125px;
-    /* float: right;
-    width: 35%;
-    position: relative; */
+}
 
-}
-.btn{
-    margin-top: 10px;
-    background: #02837d;
-    border-radius: 5px;
-    color: #FFFFFF;
-    line-height: 20px;
-	border: none;
-    margin: 0 auto;
-}
-.btn:hover .btn:active{
-    background: #026a6a;
-}
 
 h2{
     text-align: center;
@@ -87,7 +72,6 @@ input{
     border: 2px solid #e9f2ff;
     border-radius: 5px;
     text-indent: 15px;
-    /* padding-left: 25px; */
 }
 .form_card{
     background: radial-gradient(148.06% 491.36% at 96.98% 115.9%, rgba(168, 168, 168, 0.77) 0%, rgba(175, 175, 175, 0) 100%) ;
@@ -107,17 +91,7 @@ input{
 .form_field{
     margin-bottom: 13px;
 }
-.btn{
-    display: block;
-    height: 35px;
-    background: #00b2a9;
-    border-radius: 5px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-}
-.btn:hover{
-    background-color: aqua;
-}
+
 select#course{
     height: 45px;
     width: 1031px;
@@ -128,12 +102,7 @@ select#course{
     padding-left: 25px;
     color: #929394;
 }
-.mybut{
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    font-size: 18px;
-}
+
 
 .stepsToWriteIn{
 	margin: 20px 7%;
@@ -144,23 +113,6 @@ select#course{
 #stepsToWriteIn{
 	margin: 0 7%;
 	
-}
-
-.forms_form{
-	text-align: center;
-	margin: 0 auto;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	max-width: 500px;
-	background-color: #f6f6f6;
-	border-radius: 2%;
-	margin-bottom: 30px;
-	margin-top: 30px;
-}
-
-.forms_form input{
-	margin-top: 15px;
-	width: 100%;
 }
 
 .dropezone{
@@ -232,4 +184,7 @@ select#course{
     margin: 0px auto;
     margin-top: 35px;
     margin-bottom: 20px;
+}
+.forms_form{
+	padding: 0;
 }
